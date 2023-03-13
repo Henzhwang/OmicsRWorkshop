@@ -1,0 +1,19 @@
+Package: OmicsRWorkshop
+Type: Package
+Title: MIRC OMICS Introductory to R Workshop
+Version: 0.1.0
+Authors@R: c(
+    person("Biban", "Gill", email="gillbiban@gmail.com", role = c("aut")),
+    person("Jamie", "McNicol", email="jmcnic@mcmaster.ca", role = c("aut")),
+    person("Shiheng", "Huang", email="huangs96@mcmaster.ca", role = c("aut","cre"))
+    )
+#Maintainer: Shiheng Huang <huangs96@mcmaster.ca>
+Description: The objective of this workshop is to provide weekly hands on tutorials ranging from beginner to advanced level to help familiarize trainees with coding languages such as R. Tutorials will focus on how to handle data in R, as well as how to analyze and visualize various types of data using examples data sets.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 4.2.0)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
