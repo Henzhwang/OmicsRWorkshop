@@ -6,7 +6,7 @@ description: >
   Learn how to get started with the basics of R languages.
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Module 1 Introduction to R}
+  %\VignetteIndexEntry{Module 2 Basic of R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
