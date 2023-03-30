@@ -1,0 +1,380 @@
+---
+title: "Module 3 Constructing Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Module 3 Constructing Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Quick Recap
+
+Last workshop:
+
+  - The `help()` function in R and viewing documentation
+  - R thousands of packages and online resources
+  - Exploration of Rstudio and Rmarkdown
+  
+  - `()` means passing the desired function to the arguments
+    - eg. `list(x)` is passing the list function to the argument $x$
+  
+  - Basic Operations (Addition, Subtraction, Multiplication, Division, Modulus, Integer Division)
+  - Relation Operations (<, >, <=, >=, ==, !=)
+  
+  - Basic Data Types:
+    - **numeric**: 1, 12, 5.6, 7.8
+    - **Integer**: 1L, 12L, 50L
+    - **character**: "Omics", "Intro", "R Workshop", "!"
+    - **logical**: `TRUE`, `FALSE`, `T`, `F`
+    - **factor**: Convert fixed and known set of possible values to categorical variables
+    
+  - Variable assignment using `<-` or `=`
+    - eg. variable_name <- assign_value
+  
+  - Basic Data Structure:
+    - +---------------------+------------------------------+--------------------------------------+
+| Dimensions          | Homogeneous\                 | Heterogeneous\                       |
+|                     | (contents must be same type) | (contents can be of different types) |
++=====================+==============================+======================================+
+| 1 dimension         | Atomic vector                | List                                 |
++---------------------+------------------------------+--------------------------------------+
+| 2 dimensions        | Matrix                       | Data frame, (tibble)                 |
++---------------------+------------------------------+--------------------------------------+
+| n dimensions        | Array                        |                                      |
++---------------------+------------------------------+--------------------------------------+
+
+
+---
+
+### Subsetting
+
+For a given R data object that contains multiple values or multiple variables, many of the times we would want to investigate only a subset of data. We can use the indexing features in R that can be used to select and exclude variables and observations.
+
+One of the easiest way is to use the `[ ]` indexing features, and sometimes `[[ ]]`. The index can either be the index value for the values interested, or the names of the columns or the rows. Notice that the index starts with 1 in R. For instance,
+
+```{r}
+# atomic vector and list
+letter_avec <- c("a", "a", "b", "c", "b")
+
+letter_avec[1]      ## first value in the atomic vector 
+letter_avec[2:5]    ## second to fifth value in the atomic vector
+letter_avec[-3]     ## exclude the second values in the atomic vector
+```
+
+*Try with matrices or other data types yourself!*
+
+#### Data frame
+In the case of data frame, we can use the same subset method as above but in a slightly different way,
+
+```{r}
+df_1 <- data.frame(x = 1:3, y = c("a", "b", "c"))
+
+# subset using index value
+df_1[1]
+
+# subset using column name
+df_1["x"]
+```
+
+
+
+
+If we only want the the values in a column of the dataframe, let's say we only want the value of `y` in `df_1`,
+```{r}
+df_1[["y"]] # or df_1[[2]]
+```
+
+
+We can obtain the same results using `$`, which is a very convenient way to subset a column of data frame in R. The difference between using `[ ]` , `[[ ]]`, and  `$` is that subset using `[ ]` returns a data frame, while `[[ ]]`, `$` returns a atomic like vector.
+```{r}
+df_1$y
+```
+
+
+Or, if we only want the second value of `y` in `df_1`,
+```{r}
+df_1[[2]][2]
+
+val <- df_1$y
+val[2]
+```
+
+
+On the other hand, we can also subset the dataframe by rows or by any rows and columns. The dimension of a dataframe is in the form of rows by columns, thus, we can subset the rows using row index [row_index, ].
+```{r}
+# subset by rows
+df_1[1, ]
+```
+
+
+We can also subset by desired row indies and column indies,
+
+```{r}
+# create a 3D dataframe
+df_3d <- data.frame(x = 1:5, y = 6:10, z = 11:15) # dim: 5*3
+
+# find dimension of dataframe
+dim(df_3d)
+
+# subset row 2 to 5 in column 2 and 3
+df_3d[2:5, 2:3]
+```
+
+
+## Construct a workflow
+
+### Setting up working directory
+
+The working directory is the default location where R will look for files we want to load and where it will put any files you save. The initial (default) working directory will be where we save our RMarkdown files or R scipt files. 
+
+We can check where is the current working directory for this RMarkdown,
+```{r}
+getwd()
+```
+
+This indicates that R will only recognize and read the files that are store in Desktop (files that has the same working directory), but cannot recognized any files that are not in this directory. The best way is to store our RMarkdown file within the working directory of data you want to import or save. If that's not the case, we can set the working directory to the deisred files locations using `setwd()`.
+
+```{r eval=FALSE}
+setwd("/Users/henzhwang/Desktop/OmicsRWorkshop")
+```
+
+
+### Reading csv files
+
+In many cases, we want to perform data analysis on the external data in different format. We want to focus on reading csv file, where we can use `base::read.csv()` to read any csv file into R.
+
+```{r eval=FALSE}
+csv_file <- read.csv( , header = TRUE)
+# csv_file <- readr::read_csv()
+```
+
+If the file is not in your current working directory, we can also exectute the following,
+```{r eval=FALSE}
+csv_file <- read.csv()
+```
+
+
+### Data Exploration
+
+We now want to perform the basic operations to a dataset in R. We want to first try with performing the opertations to the World's famous, build-in dataset `iris` in R.
+
+We can assign the build-in dataset to a variable, and inspect the dataset (you do not have to assign to a variable as it exists in the gloabl environment, but easier to manipulate after assignment). The information of the `iris` dataset can be viewed by `??iris`.
+```{r}
+Iris <- readr::read_builtin("iris")
+#Iris <- iris
+head(Iris)
+```
+
+
+If the dataset is larger, or if we are interest in the data that at the two ends, we can use the `head()` and `tail()` command in R. The number `5` indicates the number of rows will display, default is 6.
+
+```{r}
+head(Iris, 5)
+tail(Iris, 5)
+```
+
+
+### Descriptive Analysis
+
+The next step is always good be inspect any what are the data types for each features in the dataset, and we can use `str()`. We notice that `Sepal.length`, `Sepal.Width`, `Petal.Length`, `Petal.Width` are numeric values, while `Species` is a factor column.
+
+```{r}
+str(Iris)
+```
+
+\
+
+We can also inspect the number of species in each factor level,
+```{r}
+table(Iris$Species)
+```
+
+
+\
+
+We might also be interested in the the range of the an variable.
+
+```{r}
+sepal_length <- Iris$Sepal.Length
+min(sepal_length)   ## minimum value
+max(sepal_length)   ## maximum value
+range(sepal_length) ## vector contains min and max values
+
+# range of the variable
+range(sepal_length)[2] - range(sepal_length)[1]
+```
+
+\
+
+However, these three functions are limited to the data types of the applied variable. For instance,
+```{r error=TRUE}
+min(Iris$Species)
+range(Iris$Species)
+```
+
+When we encounter errors, don't panic if the error message does not make sense. One of the useful way is copy the whole error message and search on Google, or make use of ChatGPT (Be careful that sometimes ChatGPT does not make sense!)
+
+\
+
+
+For convenience, we can use a single command `summary()` to compute the descriptive statistics of the dataset
+```{r}
+summary(Iris)
+```
+
+\
+
+
+We can also summary the dataset by species using `by()`,
+```{r}
+by(data = Iris, INDICES = Iris$Species, FUN = summary)
+```
+
+
+### Data distribution
+
+When examining the distribution of a quantitative variable, we should describe the overall pattern of the data (shape, center, spread), and any deviations from the pattern (outliers). Here are some useful metrics to determine the overall pattern:
+
+  - **Mean**: Average value of a quantitative variable
+  - **Median**: The middle number of a ordered quantitative variable
+  - **Mode**: The most frequent number of a quantitative variable
+  - **Standard Deviation**: Measure of how dispersed the data is in relation to the mean
+  - **Variance**: Measure of dispersion that takes into account the spread of all data points in a data set
+  
+We can easily compute these metrics in R,
+```{r}
+mean(sepal_length) #mean
+sd(sepal_length)   #standard deviation
+var(sepal_length)  #variance
+```
+
+\
+
+We can also visualize the data distribution of the `Sepal.Length` of the `iris` dataset using histogram, where histogram is an approximate representation of the distribution of numerical data.
+
+```{r}
+# creating histogram
+hist(sepal_length, breaks = 30,
+     xlim = c(4, 8),
+     xlab = "Sepal Length")
+```
+
+We can also visualize the `Sepal.Length` variable by species using dot plot. A dot plot uses observations as points, and help to visualize the shape and the spread of the data, and comparing the frequency distributions. We want to use `ggplot2`, 
+
+```{r message=FALSE}
+library(ggplot2)
+
+# dot plots using ggplot2
+ggplot(Iris) +
+  aes(x = Species, y = Sepal.Length) +
+  geom_dotplot(binaxis = "y", stackdir = "center")
+```
+
+Another useful plot is scatter plot. A scatter plot allow to check whether there is a potential link between two quantitative variables, and useful in visualizing a potential correlation between variables. We want to investigate the correlation between `Petal.Length` and `Petal.Width`, and thus we draw,
+
+```{r}
+# create scatter plot with base plot
+plot(Iris$Petal.Length, Iris$Petal.Width, type = "p")
+```
+
+\
+
+We can also investigate if the correlation between `Petal.Length` and `Petal.Width` is different in each species, we use `ggplot2`,
+
+```{r}
+ggplot(Iris) +
+  aes(x = Petal.Length, y = Petal.Width, colour = Species) +
+  geom_point()
+```
+
+
+
+
+### Scaling
+
+Scaling is a mathematical process used to transform numerical values to a common scale. This allows for a fair comparison of variables that have different units or ranges of values, where it involves changing the size of the shape while maintaining its proportions.
+
+It is important to note that some mathematical and statistical algorithms, such as Principal Components Analysis (PCA), are sensitive to the scale of the dataset. In such cases, it is necessary to scale the dataset before applying the algorithm to ensure that the results are not biased towards variables with larger ranges of values. Failure to scale the dataset can result in inaccurate or misleading results, making scaling an essential step in data analysis.
+
+```{r}
+# perform scaling
+Iris_scaled <- Iris
+Iris_scaled[1:4] <- scale(Iris[1:4])
+head(Iris_scaled[1:4])
+
+# summary statistic
+summary(Iris_scaled)
+```
+
+## Hypothesis testing
+
+### Correlation analysis
+
+Correlation is a statistical measure that describes the strength and direction of a relationship between two variables. It is usually measured using a correlation coefficient which is a numerical value that ranges from -1 to 1, indicating whether two variables are positively related (i.e., they tend to increase or decrease together), negatively related (i.e., they tend to move in opposite directions), or not related at all.
+
+  - A coefficient of 1 indicates a perfect positive correlation, where both variables increase or decrease together
+  - A coefficient of -1 indicates a perfect negative correlation, where one variable increases as the other decreases
+  - A coefficient of 0 indicates no correlation, meaning there is no linear relationship between the two variables
+
+```{r}
+cor(Iris[1:4])
+```
+
+\
+
+We can also make a matrix of plots with a given dataset using `ggpairs` in `GGally` package that allow us quickly visualize relationships between multiple variables in a single plot.
+```{r message=FALSE}
+GGally::ggpairs(data = Iris, 
+                columns = 1:ncol(Iris),
+                mapping = ggplot2::aes(colour = Species))
+```
+
+
+### Create new columns
+
+When performing data manipulation, it is often necessary to store the manipulation results in the original dataset for future analysis or to avoid creating a new object. One way to achieve this is by creating a new column in the data frame and assigning the manipulated values to that column. Similar to subsetting, this can be done using `$` operator in R.
+
+
+Consider if the sepal length of a flower is longer and equal to 5.843 (the mean value of sepal length in the `iris` dataset) as "long", and "short" otherwise. We want to create a new column in the `Iris` dataset to store the information on whether a flower has a "long" or "short" sepal length.
+
+```{r}
+Iris_modi <- Iris   # not necessarily
+Iris_modi$long <- ifelse(test = Iris_modi$Sepal.Length < 5.843,
+                         yes = "short", no = "yes")
+typeof(Iris_modi$long)
+Iris_modi$long <- factor(Iris_modi$long)
+is.factor(Iris_modi$long)
+```
+
+
+
+### Write data
+
+After manipulating the data, we can use `save()` to save the manipulated dataset locally. It will save automatically to the current working directory, unless specified.
+
+```{r eval=FALSE}
+Iris_modi <- Iris[56:78, ]
+
+save(Iris_modi, file = "Iris_modi.csv")
+```
+
+```{r eval=FALSE}
+save(Iris_modi, file = "/Users/henzhwang/Desktop/Iris_modi.csv")
+```
+
+
+\
+\
+\
+
+## Resources
+[Descriptive statistics in R](https://statsandr.com/blog/descriptive-statistics-in-r/#coefficient-of-variation)
+    
+    

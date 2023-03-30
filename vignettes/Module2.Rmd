@@ -1,0 +1,539 @@
+---
+title: "Module 2 Basic of R"
+author: ""
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+description: >
+  Learn how to get started with the basics of R languages.
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Module 1 Introduction to R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## R resources
+
+### The Help function
+
+R includes extensive facilities for accessing documentation and searching for help. We can use `help()` and `?` help operator in R tp provide access to the documentation pages for R functions, data sets, and other objects such as packages. 
+
+For example, if we want to perform a linear regression using `lm()` function, we can find the details of the function the followinf commands,
+```{r eval=FALSE}
+help(lm)  ## or help("lm")
+
+?lm  ## or ?"lm"
+```
+
+
+If there are multiple functions which has the same names but from the different packages, we can specify to the desired functions,
+```{r eval=FALSE}
+help("read_csv", package = "readr")
+```
+
+
+### Packages in R
+
+R packages are a collection of R functions, complied code and sample data which stored under a directory called `library` in the R environment. 
+
+There are 19351 available packages in the [R package CRAN](https://cran.r-project.org/web/packages/), we can also install packages from indiviual github page, or open source software project such as [Bioconductor](https://www.bioconductor.org/).
+
+Some useful packages will be `dplyr`, `tidyverse`, `readr` etc. to manipulate and perform data analysis in R, we can install them by the following command, 
+```{r eval=FALSE}
+install.packages("dplyr")
+install.packages("tidyverse")
+install.packages("readr")
+help(package = "dplyr")
+```
+
+After the installation of the packages, we can call the package using `lib()` to "activate" the package in the R environment,
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(tidyverse)
+library(readr)
+```
+
+
+Instead of "activating" the whole package, we can also "active" the function in a specified package,
+```{r eval=FALSE}
+dplyr::across()
+readr::read_csv()
+```
+
+
+### Resources and viewing documentation
+
+There are many online resources of introductory and advance book to R, some specified tools such as Shiny app, and some workflow for specified analysis. Here are some resources,
+
+- [Introduction to Data Exploration and Analysis with R](https://bookdown.org/mikemahoney218/IDEAR/)
+- [R for Data Science](https://r4ds.had.co.nz/index.html)
+- [Advanced R](https://www.bioconductor.org/)
+- [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)
+- [Visualization of imaging cytometry data in R](https://bodenmillergroup.github.io/cytomapper/articles/cytomapper.html)
+
+
+
+## Exploration of RStudio
+
+- Console
+- Environment
+- Layout of RStudio
+- Settings
+- RMarkdown
+
+
+
+
+## R basics
+
+### Basic arithmetic operations
+
+We want to perform some basic arithmetic operations in R, where an Operator is a symbol that tells to perform different operations between operands.
+
+- Addition (+)
+
+```{r}
+4 + 5
+1345 + 5465
+```
+
+
+
+\
+\
+- Subtraction (-)
+
+```{r}
+7 - 14
+678 - 435
+```
+
+
+
+\
+\
+- Multiplication (\*)
+
+```{r}
+5 * 6
+452 * 3
+```
+
+
+
+\
+\
+- Division (/)
+
+```{r}
+5 / 3
+2890 /76
+```
+
+
+
+
+\
+\
+- Exponent (\^)
+
+The expression of exponent is $x^y$ for $x, y$ be integer.
+
+```{r}
+2 ^ 2
+11 ^ 3
+```
+
+
+
+\
+\
+- Modulus(%%)
+
+Performing an modulus in R of two numbers will give the remainder of the division.
+
+```{r}
+5 / 3
+5 %% 3
+
+2890 / 75
+2890 %% 75
+2890 - 75 * 38
+```
+
+
+
+
+\
+\
+- Integer Division (%/%)
+
+```{r}
+5 %/% 3
+2890 %/% 75
+```
+
+#### Relation operations
+
+We uses relational operator to compare between values,
+
+-   $<$ Less than
+-   $>$ Greater than
+-   $<=$ Less than or equal to
+-   $>=$ Greater than or equal to
+-   $==$ Equal to
+-   $!=$ Not equal to
+
+```{r}
+# Assign variables
+x <- 54
+y <- 67
+
+# less than
+x < y
+
+# greater than
+x > y
+
+# less than or equal to
+x <= y
+
+# greater than or equal to
+x >= y
+
+# equal to
+x == y 
+
+# not equal to
+x != y
+```
+
+### Variable assignment
+
+We always want to assignment a value(5, "Hooray", TRUE, etc.) to a variable, to simplifies the workflow. This variable value can always be change, or passes to the program
+
+Variables in programming are usually used to store information to be referenced or used by programs. The information or the value that can change at anytime, or passes to the program depending on the need and the conditions. In R, we use `<-` or `=` to assign value to a variable and it consist two parts,
+
+-   name of the variable
+-   value or information that assign to the variable (5, "Hooray", TRUE
+
+For example, we want to assign a variable that store the information of the intensities of CD43 marker,
+
+```{r}
+# initial assignment
+CD43_intensities <- 0.00312343
+CD43_intensities
+```
+
+If value of the intensities is wrongly inputted, or it has changes, we then can
+
+```{r}
+CD43_intensities <- 0.006542345
+CD43_intensities
+```
+
+We can assign multiple variables that contains internsities for different marker.
+
+```{r}
+Ki67_intensities <- 0.005342
+CD16_intensities <- 0.003423
+
+print(paste("The intensity for Ki67 is", Ki67_intensities, "and the intensity for CD16 is", CD16_intensities, "."))
+```
+
+### Basic data types
+
+We have servval different data types in R that will help us in manipulating data. It will be important to understand each data type to reduce workflow stress and frustration at the very beginning.
+
+The first thing to keep in mind that everything in R in an object, and we do not need to detect a variable as some data type before hand. The command `class()` can be used to identify the data type or data structure of a variable.
+
+Basic data types:
+
+-   **numeric** -- all real numbers with or without decimal values (ie., 4, 67, 78.453, 0.0653)
+
+```{r}
+CD16_intensities
+class(CD16_intensities)
+```
+
+
+
+\
+\
+-   **Integer** -- specifies real values without decimal points, and suffix `L` is used to specify integer data
+
+```{r}
+# numeric
+CD11b_intensities <- 11
+class(CD11b_intensities)
+
+# integer
+CD11b_intensities <- 11L
+class(CD11b_intensities)
+```
+
+
+
+\
+\
+-   **character** -- specify character or string values in variable, can use either single quotes `' '` or double quotes `" "`.
+
+For example, `"c"`, `"y"`, `"t"` are consider as single character and `"cytometry"`, `"omics"`, and `"R workshop"` is consider as a string.
+
+```{r}
+# character variable
+character_defined <- "c"
+class(character_defined)
+
+# string variable
+string_defined <- "R workshop"
+class(string_defined)
+```
+
+
+
+\
+\
+-   **logical** -- also known as **Boolean** data type.
+
+It only have two values, `TRUE` and `FALSE`.
+
+```{r}
+# Boolean data type
+bool_true <- TRUE
+class(bool_true)
+
+bool_false <- FALSE
+class(bool_false)
+```
+
+We can also represent using the alternative value `T` and `F`.
+
+```{r}
+bool_t <- T
+bool_t == bool_true
+
+bool_f <- F
+bool_f == bool_false
+```
+
+
+#### Factor
+
+One of the important use of attributes is to use factors in R. Factors are used to work with categorical variables for variables have fixed and known set of possible values. It behave differently from regular integer vectors or character vectors, and vectors can be convert to factors using `factor()` or any other command in R packages.
+
+For instance,
+```{r}
+letter_avec <- c("a", "a", "b", "c", "b")
+letter_avec
+
+letter_avec_factor <- factor(letter_avec)
+letter_avec_factor
+
+class(letter_avec_factor)
+```
+
+We can also check the number of values in each factor class
+```{r}
+table(letter_avec_factor)
+```
+
+
+
+### Basic data structures
+
+By far, we have only talked about the case of variable that contains a single value where we would like to introduce to data structures that allow storing multiple, multi-type value in R.
+
+There are five data structures that most often used in data analysis, in [Advanced R](http://adv-r.had.co.nz/Data-structures.html), Wickham summaries the dimensionality and values types in each data structures,
+
++---------------------+------------------------------+--------------------------------------+
+| Dimensions          | Homogeneous\                 | Heterogeneous\                       |
+|                     | (contents must be same type) | (contents can be of different types) |
++=====================+==============================+======================================+
+| 1 dimension         | Atomic vector                | List                                 |
++---------------------+------------------------------+--------------------------------------+
+| 2 dimensions        | Matrix                       | Data frame, (tibble)                 |
++---------------------+------------------------------+--------------------------------------+
+| n dimensions        | Array                        |                                      |
++---------------------+------------------------------+--------------------------------------+
+
+
+#### Atomic vector
+
+Atomic vector is often created using `c()`, short for combine. 
+
+Atomic vector is often created using command `c()` which is short for combine, and separte each element with `,`. The elements of a vector are all of the same type.
+
+```{r}
+# numeric atomic vector
+num_avec <- c(1, 2, 4.5, 75)
+
+# integer atomic vector
+int_avec <- c(1L, 4L, 100L)
+
+# character atomic vector
+chr_avec <- c("Omics", "Flow Cytometry", "R", "Workshop")
+
+# logical atomic vector
+log_avec <- c(TRUE, FALSE, T, F)
+```
+
+
+We cam also create a atomic vector of variables.
+```{r}
+intensities_avec <- c(CD43_intensities, CD11b_intensities, CD16_intensities)
+intensities_avec
+
+class(intensities_avec)
+```
+
+
+#### Lists
+
+List is different from atomic vectors as it is heterogeneous (can contain elements of different and arbitrary data types), and can be constructed using command `list()`.
+
+```{r}
+# creating lists
+arb_list <- list(1, 3, "Workshop", TRUE, "omics")
+arb_list2 <- list("Tomorrow", "is", "finally", "Friday")
+arb_list
+
+class(arb_list)
+```
+
+List can also contain list itself! That's mean we can create a list of list.
+```{r}
+comb_list <- list(arb_list, arb_list2)
+comb_list
+```
+
+
+#### Matrix
+
+Matrix can be consider as a special case of array where it has two dimensions, with a shape of rectangular (or square). It can be created using commands `matrix()` and `array()`. 
+
+```{r}
+# create matrix using matrix()
+mat1 <- matrix(data = 1:6, nrow = 2, ncol = 3, byrow = FALSE, dimnames = NULL)
+mat1 
+
+mat2 <- matrix(data = c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)
+mat2
+
+# examine if mat2 is identical
+all.equal(mat1, mat2)
+
+class(mat1)
+```
+
+```{r}
+# create matrix using array()
+mat3 <- array(data = 1:6, dim = c(2, 3), dimnames = NULL)
+mat3
+
+# examine if mat1 is identical
+all.equal(mat1, mat3)
+```
+
+#### Data frames
+
+Data frames are most commonly way of storing data in R to make data analysis easier. It has a 2-dimensional structure and it is a list of equal-length vectors such that it shares both the properties matrix and the list.
+
+We can create a data frame using the base function `data.frame()`, or any other commands in other R packages.
+```{r}
+df_1 <- data.frame(x = 1:3, y = c("a", "b", "c"))
+df_1
+
+class(df_1)
+```
+
+We can also create a data frame using lists with `unlist()`.
+
+```{r}
+# create lists
+df_list <- c(1:3)
+df_list2 <- c("a", "a", "b")
+df_list3 <- c(TRUE, TRUE, FALSE)
+
+# create data frame
+df_2 <- data.frame(value = unlist(df_list), 
+                   chara = unlist(df_list2),
+                   logic = unlist(df_list3))
+df_2
+```
+
+
+#### Array
+
+Array are the R data objects that can store data in more than two dimensions. It is not less commonly use, but it definitely worth learning as it might very useful.
+
+Let's say we want to create an array to store multiple matrices. We know that the dimension of a matrix is $2 \times 2$, and storing multiple matrices will make the array to be three dimensions.
+
+We first want to create some matrices.
+```{r}
+mat_1 <- matrix(data = 1:6, nrow = 2, ncol = 3, byrow = FALSE)
+mat_2 <- matrix(data = 1:6, nrow = 2, ncol = 3, byrow = TRUE)
+mat_3 <- matrix(data = 12:17, nrow = 2, ncol = 3, byrow = FALSE)
+```
+
+We then want to store the matricies into an array
+```{r}
+mat_array <- array(data = c(mat_1, mat_2, mat_3),
+                   dim = c(2, 3, 3))
+dimnames(mat_array)[[3]] <- list("Matrix 1", "Matrix 2", "Matrix 3")
+mat_array
+
+class(mat_array)
+```
+
+
+### Identify data types
+
+In many cases, we might be unsure about the data type or the data structure of an R object. In R, we can use the following command to determine or identify the data types or the data structure of the data
+
+- `class()` -- return the values of the class attributes
+- `typeof()` -- determines the internal type or storage mode of any object
+
+The value of class attributes of an object might not be the same as the internal type of the object.
+```{r}
+# num_avec # c(1.0  2.0  4.5 75.0)
+class(num_avec)
+typeof(num_avec)
+```
+
+```{r}
+#int_avec # c(1  4 100)
+class(int_avec)
+typeof(int_avec)
+```
+
+```{r}
+class(df_1)
+typeof(df_1)
+```
+
+
+```{r}
+class(mat_array)
+typeof(mat_array)
+```
+
+
+\ 
+- Data type
+
+  - `is.numeric(x)` -- return `TRUE` if x is an numeric type or `FALSE` otherwise
+  - `is.double()`, `is.integer()`, `is.double()`, `is.character()`, `is.logical()`, `is.factor()` performed similar functionality
+  
+\ 
+- Data_structure
+
+  - `is.atomic(x)` -- return `TRUE` if x is an atomic type or `FALSE` otherwise
+  - `is.list()`, `is.matrix()`, `is.data.frame()`, `is.array()` performed similar functionality
+  

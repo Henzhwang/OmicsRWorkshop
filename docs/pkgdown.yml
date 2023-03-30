@@ -3,7 +3,9 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   Module1: Module1.html
-last_built: 2023-03-13T22:15Z
+  Module2: Module2.html
+  Module3: Module3.html
+last_built: 2023-03-30T18:26Z
 urls:
   reference: https://henzhwang.github.io/Intro/reference
   article: https://henzhwang.github.io/Intro/articles
