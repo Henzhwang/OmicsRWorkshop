@@ -160,9 +160,10 @@ values to categorical variables</li>
 </li>
 </ul>
 <hr>
-<div class="section level3">
-<h3 id="subsetting">Subsetting<a class="anchor" aria-label="anchor" href="#subsetting"></a>
-</h3>
+</div>
+<div class="section level2">
+<h2 id="subsetting">Subsetting<a class="anchor" aria-label="anchor" href="#subsetting"></a>
+</h2>
 <p>For a given R data object that contains multiple values or multiple
 variables, many of the times we would want to investigate only a subset
 of data. We can use the indexing features in R that can be used to
@@ -251,7 +252,6 @@ columns, thus, we can subset the rows using row index [row_index, ].</p>
 <span><span class="co">#&gt; 5 10 15</span></span></code></pre></div>
 </div>
 </div>
-</div>
 <div class="section level2">
 <h2 id="construct-a-workflow">Construct a workflow<a class="anchor" aria-label="anchor" href="#construct-a-workflow"></a>
 </h2>
@@ -283,12 +283,12 @@ directory to the deisred files locations using <code><a href="https://rdrr.io/r/
 in different format. We want to focus on reading csv file, where we can
 use <code>base::read.csv()</code> to read any csv file into R.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">csv_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span> , header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">csv_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"&lt;path/file name&gt;"</span> , header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># csv_file &lt;- readr::read_csv()</span></span></code></pre></div>
 <p>If the file is not in your current working directory, we can also
 exectute the following,</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">csv_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">csv_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"&lt;path/file name&gt;"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="data-exploration">Data Exploration<a class="anchor" aria-label="anchor" href="#data-exploration"></a>
@@ -562,11 +562,8 @@ scaling an essential step in data analysis.</p>
 <span><span class="co">#&gt;                 </span></span>
 <span><span class="co">#&gt;                 </span></span>
 <span><span class="co">#&gt; </span></span></code></pre></div>
+<!-- ## Hypothesis testing -->
 </div>
-</div>
-<div class="section level2">
-<h2 id="hypothesis-testing">Hypothesis testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"></a>
-</h2>
 <div class="section level3">
 <h3 id="correlation-analysis">Correlation analysis<a class="anchor" aria-label="anchor" href="#correlation-analysis"></a>
 </h3>
