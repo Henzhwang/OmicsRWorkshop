@@ -154,4 +154,7 @@ more specific research areas.
 ## Additional Resources
 
 <https://www.youtube.com/marinstatlectures>
-<https://r4ds.had.co.nz/workflow-basics.html> <https://r4ds.hadley.nz/>
+
+<https://r4ds.had.co.nz/workflow-basics.html>
+
+<https://r4ds.hadley.nz/>
