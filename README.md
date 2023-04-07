@@ -3,11 +3,15 @@
 
 ## Omics R Workshop
 
+------------------------------------------------------------------------
+
 **Day/Time:** Thursdays 5:30-7:30pm
 
 **Location:** MDCL 3022
 
 **Contact Info:** [gillb3@mcmaster.ca](gillb3@mcmaster.ca)
+
+------------------------------------------------------------------------
 
 ## Motivation
 
