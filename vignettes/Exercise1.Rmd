@@ -1,0 +1,147 @@
+---
+title: "Exercise 1"
+author: ""
+date: "2023-04-07"
+description: >
+  Exercises for material for up to Module 3.
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Exercise 1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Exercise 1
+
+Install and load library `dplyr`.
+
+a.  Call help for function arrange of `dplyr`
+
+\
+
+## Exercise 2
+
+Create a variable called `myVar` and assign it to $30$
+
+a.  What data type is `myVar`? (Use a function to check)
+b.  Convert `myVar` to a different data type
+
+\
+
+## Exercise 3
+
+Create a new variable called `my_num` tha contains 6 numbers
+
+a.  Multiply `my_num` by 4
+
+\
+
+## Exercise 4
+
+Create a second variable called `my_char` that contains 5 character strings
+
+\
+
+## Exercise 5
+
+Combine the two variables that `my_num` and `my_char` into a variable called both
+
+a.  What is the length of both
+b.  Divide both by 3, what happens?
+
+\
+
+## Exercise 6
+
+Create a vector with elements 1, 2, 3, 4, 5, 6 and call it `x`
+
+\
+
+## Exercise 7
+
+Create another vector with elements 10, 20, 30, 40, 50 and call it `y`
+
+\
+
+## Exercise 8
+
+What happens if you try to add `x` and `y` together? Why?
+
+a.  Add `x` and `y` together
+b.  Multiply `x` and `y` together. Pay attention to how R performs operations on vectors of the same length
+c.  What happens if `x` and `y` have different length?
+
+\
+
+## Exercise 9
+
+Now create a vector with elements "aa", "bb", "cc", "dd", "kk" and call it `z`
+
+a.  What happens if you try to add `x` or `y` with `z` together
+b.  Why does the error comes up? (Hint: data types)
+
+\
+
+## Exercise 10
+
+If `x <- c("ww", "ee", "ff", "uu", "kk")`, what is the output for `x[c(2,3)]`?
+
+a.  Can you subset `x` in another way and get the same output?
+
+\
+
+## Exercise 11
+
+If `x <- c("ss", "aa", "ff", "kk", "bb")`, what will be the third value in the index vector operation `x[c(2,4,4)]`?
+
+\
+
+## Exercise 12
+
+Assign `fname <-  "James"` and `lname <- "Bond"`,
+
+a.  Produce the output `James Bond` using a line of code (Hint: use `paste()`)
+
+\
+
+## Exercise 13
+
+Create two character vectors:
+
+-   `Names <- c("John", "Andrew", "Thomas")` and
+-   `Designation <- c("Manager", "Project Head", "Marketing Head")`.
+
+a.  Write some R code to obtain the following output (Hint: check help page the function you used to create a data frame):
+
+```{r echo=FALSE}
+Names <- c("John", "Andrew", "Thomas")
+Designation <- c("Manager", "Project Head", "Marketing Head")
+
+names_design <- paste(Names, Designation)
+df <- data.frame("Names Designation" = names_design, check.names = FALSE)
+df
+```
+
+\
+
+## Exercise 14
+
+Create the following data frame, and call it Employees
+
+```{r echo=FALSE}
+Names <- c("Alex", "Lilly", "Mark", "Oliver", "Martha", "Lucas", "Caroline")
+Age <- c(25, 31, 23, 52, 76, 49, 26)
+Height <- c(177, 163, 190, 179, 163, 183, 164)
+Weight <- c(57, 69, 83, 75, 70, 83, 53)
+Sex <- c("F", "F", "M", "M", "F", "M", "F")
+
+Employees <- data.frame(Names, Age, Height, Weight, Sex)
+Employees
+```

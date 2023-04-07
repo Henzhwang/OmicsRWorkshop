@@ -1,5 +1,9 @@
 ---
 title: "Module 3 Constructing Workflow"
+author: ""
+date: "2023-03-30"
+description: >
+  Learn how to get started on performing data analysis on data frames.
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Module 3 Constructing Workflow}
@@ -53,7 +57,7 @@ Last workshop:
 
 ---
 
-### Subsetting
+## Subsetting
 
 For a given R data object that contains multiple values or multiple variables, many of the times we would want to investigate only a subset of data. We can use the indexing features in R that can be used to select and exclude variables and observations.
 
@@ -65,7 +69,7 @@ letter_avec <- c("a", "a", "b", "c", "b")
 
 letter_avec[1]      ## first value in the atomic vector 
 letter_avec[2:5]    ## second to fifth value in the atomic vector
-letter_avec[-3]     ## exclude the second values in the atomic vector
+letter_avec[-3]     ## exclude the third values in the atomic vector
 ```
 
 *Try with matrices or other data types yourself!*
@@ -151,13 +155,13 @@ setwd("/Users/henzhwang/Desktop/OmicsRWorkshop")
 In many cases, we want to perform data analysis on the external data in different format. We want to focus on reading csv file, where we can use `base::read.csv()` to read any csv file into R.
 
 ```{r eval=FALSE}
-csv_file <- read.csv( , header = TRUE)
+csv_file <- read.csv("<path/file name>" , header = TRUE)
 # csv_file <- readr::read_csv()
 ```
 
 If the file is not in your current working directory, we can also exectute the following,
 ```{r eval=FALSE}
-csv_file <- read.csv()
+csv_file <- read.csv("<path/file name>")
 ```
 
 
@@ -313,7 +317,7 @@ head(Iris_scaled[1:4])
 summary(Iris_scaled)
 ```
 
-## Hypothesis testing
+<!-- ## Hypothesis testing -->
 
 ### Correlation analysis
 

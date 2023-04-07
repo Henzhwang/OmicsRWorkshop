@@ -23,3 +23,12 @@ template:
 
 development:
   mode: auto
+
+articles:
+- title: Materials
+  navbar: ~
+  contents:
+  - Module1
+  - Module2
+  - Module3
+  - Exercise1

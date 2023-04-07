@@ -1,9 +1,9 @@
 ---
 title: "Module 1 Introduction to R"
 author: ""
-date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+date: "2023-03-16"
 description: >
-  Learn how to get started with the basics of R languages.
+  Learn what is R and how to download and install R.
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Module 1 Introduction to R}
@@ -25,17 +25,26 @@ library(OmicsRWorkshop)
 
 ## Overeview of R programming
 
+R is a popular open-source programming language and software environment for statistical computing and data analysis. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, in the mid-1990s. Today, R is widely used by statisticians, data analysts, researchers, and scientists to perform a wide range of data-related tasks, including data visualization, statistical analysis, machine learning, and more.
 
-## Downloading and installing R
+One of the main benefits of R is its powerful and flexible capabilities for data analysis and visualization. It has a wide range of built-in functions and packages for various statistical and machine learning techniques, making it a versatile tool for data scientists. Additionally, R has a vibrant and active user community, which has contributed to the development of thousands of additional packages, making it even more powerful and useful.
 
+R programming language has a simple and easy-to-learn syntax, making it an excellent choice for beginners. It also supports a wide range of data formats and allows for easy integration with other programming languages, such as Python or SQL.
 
-## The Help `??` function
-
-
-## Resources and viewing documentation
-
-
-## Packages in R
+In summary, R is a popular and versatile programming language for data analysis and visualization, with a strong user community, extensive library of packages and functions, and a simple syntax, making it a great choice for both beginners and experienced data scientists.
 
 
-Bye now
+## Download and install R
+
+We can download and install R from [The R Project for Statistical Computing](https://www.r-project.org/). We first need to choose a preferred **CRAN mirror**, or using the [University of Waterloo CRAN](https://mirror.csclub.uwaterloo.ca/CRAN/) to download the latest version(4.2.3 Shortstop Beagle) or desire version for Windows, Mac, or Linux.
+
+
+## Downaload and install Rstudio
+
+RStudio is an Integrated Development Environment (IDE) for R that provides a user-friendly interface for writing R code, managing projects, and visualizing data. It was developed by RStudio, Inc. and is available for free as an open-source software.
+
+RStudio provides a number of useful features for R programmers, including syntax highlighting, code completion, debugging tools, and a built-in console for running R code. It also has a number of useful packages and add-ons, such as Shiny for creating interactive web applications, ggplot2 for data visualization, and dplyr for data manipulation.
+
+One of the main benefits of RStudio is its user-friendly interface, which makes it easier for beginners to get started with R programming. Additionally, it provides a number of useful tools and features that can save time and increase productivity for experienced programmers.
+
+Rstudio can be downloaded from [Download Rstudio](https://posit.co/download/rstudio-desktop/) (Open Source Edition is sufficient for daily and research use), and download the corresponding version for your operating system.
