@@ -28,7 +28,7 @@ especially for statistical analysis and data visualization and is a
 robust data analysis tool that is the industry-standard for data
 science.
 
-\##Objectives
+## Objectives
 
 The objective of this workshop is to provide weekly hands on tutorials
 ranging from beginner to advanced level to help familiarize trainees

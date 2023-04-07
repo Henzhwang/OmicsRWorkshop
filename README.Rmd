@@ -28,7 +28,7 @@ In the last two decades advancements in high-throughput technologies and novel b
 R is a programming language for statistical computing, data analysis and machine learning. With over 12 000 packages available R can support a large variety of analysis. R is a free and open source programming language allowing for bugs to be easily detected and fixed, with plenty of online resources available. R has also become increasingly popular especially for statistical analysis and data visualization and is a robust data analysis tool that is the industry-standard for data science.
 
 
-##Objectives
+## Objectives
 
 The objective of this workshop is to provide weekly hands on tutorials ranging from beginner to advanced level to help familiarize trainees with coding languages such as R. Tutorials will focus on how to handle data in R, as well as how to analyze and visualize various types of data using examples data sets.
 
