@@ -145,3 +145,106 @@ Sex <- c("F", "F", "M", "M", "F", "M", "F")
 Employees <- data.frame(Names, Age, Height, Weight, Sex)
 Employees
 ```
+
+a.  Extract specific column from a data frame
+b.  Extract 3rd and 5th rows with 1st and 3rd columns\
+c.  Add a new column and call it Education, where everyone has an education status of HS
+d.  Add new row called Louis
+e.  Make `Sex` column into a factor. How many factor levels are in the columns?
+
+\
+
+## Exercise 15
+
+Create the data frame below and call it Working (make sure you import the variable Working as character and not factor).
+
+```{r echo=FALSE}
+Working <- c("Yes", "No", "No", "Yes", "Yes", "No", "Yes")
+df_3 <- data.frame(Names, Working)
+df_3
+```
+
+
+a.  Add this data frame column-wise to the previous one.
+b.  How many rows and columns does the new data frame have?
+c.  What class of data is in each column?
+
+
+\
+
+# **Using the `iris` dataset in R**
+
+## Exercise 16
+
+Extract `Sepal.Length` from the `iris` dataset and call the resulting vector `mysepal`
+
+a.  Get the summation, mean, median, max and min of `mysepal`
+b.  Get the summary of `mysepal`
+
+\
+
+## Exercise 17
+
+Get all rows of Species `versivcolor` in a new data frame. Call this data frame: `iris.vers`
+
+\
+
+## Exercise 18
+
+Get a vector called `sepal.dif` with the difference between `Sepal.Length` and `Sepal.Width` of `versicolor` plants
+
+\
+
+## Exercise 19
+
+Update (add) `iris.vers` with the new column `sepal.dif`
+
+\
+
+## Exercise 20
+
+How many observations in `iris` gave a Sepal.Length greater or equal 5?
+
+\
+
+# **Using the `mtcars` dataset in R**
+
+## Exercise 21
+
+Check to see if you have the `mtcars` dataset by entering the command `mtcars`.
+
+a.  What class is `mtcars`?
+
+\
+
+## Exercise 22
+
+How many observations (rows) and variables (columns) are in the `mtcars` dataset?
+
+\
+
+## Exercise 23
+
+Perform an descriptive analysis on the `mtcars` dataset (Hint: data types of columns, mean, median, ...).
+
+a.    How many unique values in `cyl`, `vs`, `am`,  `gear`, and `carb` (Hint: use `unique()`)?
+
+\
+
+## Exercise 24
+
+Get the first 9 observations of `mtcars`.
+
+a.    Get the last 9 observations of `mtcars`
+b.    Get the 10th to 15th, 24th to 26th, and 28th to 32th observations of `mtcars`
+c.    Subset a data frame of the 15th to 25th observations of `hp`, `drat`, and `qsec`
+d.    Subset the value of the 10th to 18th observations of `mpg`, `cyl`, and `disp`
+
+\
+
+## Exercise 25
+
+Create s subset `cars` that only contains the columns: `wt`, `qsec`, and `hp` and assign this object to `carsSub`
+
+a.  What are the dimensions of `carsSub`
+b.  Extract the first 2 variables of the first 2 observations of `carsSub`
