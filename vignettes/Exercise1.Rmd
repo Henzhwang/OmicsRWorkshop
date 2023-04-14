@@ -299,7 +299,7 @@ Create two character vectors:
 
 a.  Write some R code to obtain the following output (Hint: check help page the function you used to create a data frame):
 
-```{r echo=FALSE}
+```{r echo=FALSE, fold.chunk=FALSE}
 Names <- c("John", "Andrew", "Thomas")
 Designation <- c("Manager", "Project Head", "Marketing Head")
 
@@ -325,7 +325,7 @@ df
 
 Create the following data frame, and call it Employees
 
-```{r echo=FALSE}
+```{r echo=FALSE, fold.chunk=FALSE}
 Names <- c("Alex", "Lilly", "Mark", "Oliver", "Martha", "Lucas", "Caroline")
 Age <- c(25, 31, 23, 52, 76, 49, 26)
 Height <- c(177, 163, 190, 179, 163, 183, 164)
