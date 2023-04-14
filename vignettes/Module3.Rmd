@@ -351,7 +351,7 @@ Consider if the sepal length of a flower is longer and equal to 5.843 (the mean 
 ```{r}
 Iris_modi <- Iris   # not necessarily
 Iris_modi$long <- ifelse(test = Iris_modi$Sepal.Length < 5.843,
-                         yes = "short", no = "yes")
+                         yes = "short", no = "long")
 typeof(Iris_modi$long)
 Iris_modi$long <- factor(Iris_modi$long)
 is.factor(Iris_modi$long)

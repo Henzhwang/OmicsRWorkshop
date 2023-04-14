@@ -3,115 +3,294 @@ title: "Exercise 1"
 author: ""
 date: "2023-04-07"
 description: >
-  Exercises for material for up to Module 3.
-output: rmarkdown::html_vignette
+  Questions for material for up to Module 3.
+output: 
+  rmarkdown::html_vignette:
+    code_folding: hide
 vignette: >
   %\VignetteIndexEntry{Exercise 1}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
+
+```{r, include=FALSE}
+hooks = knitr::knit_hooks$get()
+hook_foldable = function(type) {
+  force(type)
+  function(x, options) {
+    res = hooks[[type]](x, options)
+    
+    if (isFALSE(options[[paste0("fold.", type)]])) return(res)
+    
+    paste0(
+      "<details><summary>", type, "</summary>\n\n",
+      res,
+      "\n\n</details>"
+    )
+  }
+}
+knitr::knit_hooks$set(
+  chunk = hook_foldable("chunk")
+  #output = hook_foldable("output"),
+  #plot = hook_foldable("plot")
+)
+```
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
+  #class.source = 'fold-hide',
+  #foldcode=TRUE
 )
 ```
 
-## Exercise 1
+## Question 1
 
 Install and load library `dplyr`.
 
+```{r eval=FALSE}
+# install package
+install.packages(dplyr)
+```
+
+```{r}
+# load dplyr package
+library(dplyr)
+```
+
 a.  Call help for function arrange of `dplyr`
+
+```{r}
+# help page of dplyr
+?dplyr
+```
+
 
 \
 
-## Exercise 2
+## Question 2
 
 Create a variable called `myVar` and assign it to $30$
 
+```{r}
+myVar <- 30
+```
+
 a.  What data type is `myVar`? (Use a function to check)
+
+```{r}
+class(myVar)
+typeof(myVar)
+```
+
 b.  Convert `myVar` to a different data type
+
+```{r}
+# convert to string
+myVar <- as.character(myVar)
+class(myVar)
+
+# convert to integer
+myVar <- as.integer(myVar)
+class(myVar)
+```
+
 
 \
 
-## Exercise 3
+## Question 3
 
-Create a new variable called `my_num` tha contains 6 numbers
+Create a new variable called `my_num` that contains 6 numbers
+
+```{r}
+my_num <- 16:21
+my_num
+```
 
 a.  Multiply `my_num` by 4
 
+```{r}
+my_num * 4
+```
+
+
 \
 
-## Exercise 4
+## Question 4
 
 Create a second variable called `my_char` that contains 5 character strings
 
-\
+```{r}
+my_char <- c("nn", "oo", "rr", "ee", "yy")
+```
 
-## Exercise 5
-
-Combine the two variables that `my_num` and `my_char` into a variable called both
-
-a.  What is the length of both
-b.  Divide both by 3, what happens?
 
 \
 
-## Exercise 6
+## Question 5
+
+Combine the two variables that `my_num` and `my_char` into a variable called `both`
+
+```{r}
+both <- c(my_num, my_char)
+both
+```
+
+
+a.  What is the length of `both`
+
+```{r}
+length(both)
+```
+
+b.  Divide `both` by 3, what happens?
+
+```{r error=TRUE}
+both/3
+```
+
+
+
+\
+
+## Question 6
 
 Create a vector with elements 1, 2, 3, 4, 5, 6 and call it `x`
 
+```{r}
+x <- 1:6
+#x <- c(1, 2, 3, 4, 5, 6)
+x
+```
+
+
 \
 
-## Exercise 7
+## Question 7
 
 Create another vector with elements 10, 20, 30, 40, 50 and call it `y`
 
+```{r}
+y <- seq(from = 10, to = 50, by = 10)
+#y <- c(10, 20, 30, 40, 50)
+y
+```
+
+
 \
 
-## Exercise 8
+## Question 8
 
 What happens if you try to add `x` and `y` together? Why?
 
 a.  Add `x` and `y` together
+
+```{r}
+x + y
+
+##
+# We notice that the two variables have different lengths, such that the sixth value of `x` is added to the first value in `y`. We also receive a warning for this operation.
+```
+
 b.  Multiply `x` and `y` together. Pay attention to how R performs operations on vectors of the same length
-c.  What happens if `x` and `y` have different length?
+
+```{r}
+x * y
+```
+
+
+c.  What happens if `x` and `y` have the same length?
+
+```{r}
+x <- 1:5
+x + y
+x * y 
+
+```
+
 
 \
 
-## Exercise 9
+## Question 9
 
 Now create a vector with elements "aa", "bb", "cc", "dd", "kk" and call it `z`
 
+```{r}
+z <- c("aa", "bb", "cc", "dd", "kk") 
+```
+
+
 a.  What happens if you try to add `x` or `y` with `z` together
+
+```{r error=TRUE}
+x + z
+```
+
 b.  Why does the error comes up? (Hint: data types)
+
+```{r}
+##
+# We notice that the data type of `x` and `y` (numeric), is different from `z` (character), and we are not able to perform computational operations on different data types.
+```
+
 
 \
 
-## Exercise 10
+## Question 10
 
 If `x <- c("ww", "ee", "ff", "uu", "kk")`, what is the output for `x[c(2,3)]`?
 
+```{r}
+x <- c("ww", "ee", "ff", "uu", "kk")
+x[c(2, 3)]
+```
+
 a.  Can you subset `x` in another way and get the same output?
+
+```{r}
+x[2:3]
+```
+
 
 \
 
-## Exercise 11
+## Question 11
 
 If `x <- c("ss", "aa", "ff", "kk", "bb")`, what will be the third value in the index vector operation `x[c(2,4,4)]`?
 
+```{r}
+x <- c("ss", "aa", "ff", "kk", "bb")
+x[c(2,4,4)]
+
+##
+# The third value is "kk", which is the fourth value in `x`
+```
+
+
 \
 
-## Exercise 12
+## Question 12
 
 Assign `fname <-  "James"` and `lname <- "Bond"`,
 
+```{r}
+fname <-  "James"
+lname <- "Bond"
+```
+
 a.  Produce the output `James Bond` using a line of code (Hint: use `paste()`)
+
+```{r}
+paste(fname, lname)
+# paste0(fname, " ", lname)
+```
+
 
 \
 
-## Exercise 13
+## Question 13
 
 Create two character vectors:
 
@@ -129,9 +308,20 @@ df <- data.frame("Names Designation" = names_design, check.names = FALSE)
 df
 ```
 
+
+```{r eval=FALSE}
+Names <- c("John", "Andrew", "Thomas")
+Designation <- c("Manager", "Project Head", "Marketing Head")
+
+names_design <- paste(Names, Designation)
+df <- data.frame("Names Designation" = names_design, check.names = FALSE)
+df
+```
+
+
 \
 
-## Exercise 14
+## Question 14
 
 Create the following data frame, and call it Employees
 
@@ -146,105 +336,391 @@ Employees <- data.frame(Names, Age, Height, Weight, Sex)
 Employees
 ```
 
+
+```{r eval=TRUE}
+Names <- c("Alex", "Lilly", "Mark", "Oliver", "Martha", "Lucas", "Caroline")
+Age <- c(25, 31, 23, 52, 76, 49, 26)
+Height <- c(177, 163, 190, 179, 163, 183, 164)
+Weight <- c(57, 69, 83, 75, 70, 83, 53)
+Sex <- c("F", "F", "M", "M", "F", "M", "F")
+
+Employees <- data.frame(Names, Age, Height, Weight, Sex)
+Employees
+```
+
 a.  Extract specific column from a data frame
-b.  Extract 3rd and 5th rows with 1st and 3rd columns\
+
+```{r}
+# extract the height column form the data frame
+Employees$Height
+```
+
+b.  Extract 3rd and 5th rows with 1st and 3rd columns
+
+```{r}
+Employees[c(3, 5), c(1, 3)]
+```
+
 c.  Add a new column and call it Education, where everyone has an education status of HS
+
+```{r}
+Employees$Education <- "HS"
+Employees
+```
+
 d.  Add new row called Louis
+
+```{r}
+louis_row <- c("Louis", 34, 185, 80, "M", "HS")
+Employees <- rbind(Employees, louis_row)
+Employees
+```
+
 e.  Make `Sex` column into a factor. How many factor levels are in the columns?
+
+```{r}
+Employees$Sex <- factor(Employees$Sex)
+#Employees <- mutate(Employees, Sex = factor(Sex))
+class(Employees$Sex)
+```
+
 
 \
 
-## Exercise 15
+## Question 15
 
 Create the data frame below and call it Working (make sure you import the variable Working as character and not factor).
 
 ```{r echo=FALSE}
-Working <- c("Yes", "No", "No", "Yes", "Yes", "No", "Yes")
-df_3 <- data.frame(Names, Working)
-df_3
+Names <- c("Alex", "Lilly", "Mark", "Oliver", "Martha", "Lucas", "Caroline", "Louis")
+Working <- c("Yes", "No", "No", "Yes", "Yes", "No", "Yes", "Yes")
+Working <- data.frame(Names, Working)
+Working
 ```
 
+```{r eval=FALSE}
+Names <- c("Alex", "Lilly", "Mark", "Oliver", "Martha", "Lucas", "Caroline", "Louis")
+Working <- c("Yes", "No", "No", "Yes", "Yes", "No", "Yes", "Yes")
+Working <- data.frame(Names, Working)
+Working
+```
 
 a.  Add this data frame column-wise to the previous one.
+
+```{r}
+# column bind the new column 
+Employees_new <- cbind(Employees, Working = Working$Working)
+
+## alternative:
+#Employees_new <- dplyr::left_join(x = Employees, y = Working, by = "Names")
+
+Employees_new
+```
+
 b.  How many rows and columns does the new data frame have?
+
+```{r}
+dim(Employees_new)
+
+##
+# The new data frame has 8 rows and 7 columns.
+```
+
 c.  What class of data is in each column?
+
+```{r}
+str(Employees_new)
+
+##
+# `Names`, `Age`, `Height`, `Weight`, `Education`, `Working` are character (string), and `Sex` is a factor.
+```
+
+d. Convert the `Age`, `Height` and `Weight` to numeric data type or integer data type using `as.[data type]()` (Hint: `as.numeric()`) ; convert `Education` and `Working` to factor variable using `dplyr::mutate()`.
+
+```{r}
+# convert to numeric data type
+Employees_new$Age <- as.numeric(Employees$Age)
+Employees_new$Height <- as.numeric(Employees_new$Height)
+
+# convert to integer data type
+Employees_new$Weight <- as.integer(Employees_new$Weight)
+
+# convert to factor variable
+Employees_new <- dplyr::mutate(Employees_new,
+                               Education = factor(Education),
+                               Working = factor(Working))
+
+##
+# Or all together
+# Employees_new <- Employees_new |> 
+#   dplyr::mutate(
+#     Age = as.numeric(Age),
+#     Height = as.numeric(Height),
+#     Weight = as.integer(Weight),
+#     Education = factor(Education),
+#     Working = factor(Working)
+#   )
+
+str(Employees_new)
+```
+
 
 
 \
 
 # **Using the `iris` dataset in R**
 
-## Exercise 16
+## Question 16
 
 Extract `Sepal.Length` from the `iris` dataset and call the resulting vector `mysepal`
 
+```{r}
+mysepal <- iris$Sepal.Length
+head(mysepal)
+```
+
+
 a.  Get the summation, mean, median, max and min of `mysepal`
+
+```{r}
+# summation
+sum(mysepal)
+
+# mean
+mean(mysepal)
+
+# median
+median(mysepal)
+
+# max
+max(mysepal)
+
+# min
+min(mysepal)
+```
+
 b.  Get the summary of `mysepal`
 
+```{r}
+summary(mysepal)
+```
+
+
 \
 
-## Exercise 17
+## Question 17
 
-Get all rows of Species `versivcolor` in a new data frame. Call this data frame: `iris.vers`
+Get all rows of Species `versicolor` in a new data frame. Call this data frame: `iris.vers`
+
+```{r}
+iris.vers <- subset(iris, Species == "versicolor")
+#iris.vers <- iris[iris$Species == "versicolor", ]
+iris.vers
+```
+
 
 \
 
-## Exercise 18
+## Question 18
 
 Get a vector called `sepal.dif` with the difference between `Sepal.Length` and `Sepal.Width` of `versicolor` plants
 
+```{r}
+sepal.dif <- iris.vers$Sepal.Length - iris.vers$Sepal.Width
+sepal.dif
+```
+
+
 \
 
-## Exercise 19
+## Question 19
 
 Update (add) `iris.vers` with the new column `sepal.dif`
 
+```{r}
+iris.vers$`Sepal_diff` <- sepal.dif
+#iris.vers <- cbind(iris.vers, Speal_diff = sepal.dif)
+head(iris.vers)
+```
+
+
 \
 
-## Exercise 20
+## Question 20
 
-How many observations in `iris` gave a Sepal.Length greater or equal 5?
+How many observations in `iris` gave a Sepal Length greater or equal 5?
+
+```{r}
+# nrow() finds the number of rows (observations)
+# subset() select the Sepal.Length >= 5
+nrow(subset(iris, Sepal.Length >= 5))
+
+##
+# alternatively:
+# iris |> 
+#   dplyr::filter(Sepal.Length >= 5) |> 
+#   nrow()
+```
+
 
 \
 
 # **Using the `mtcars` dataset in R**
 
-## Exercise 21
+## Question 21
 
 Check to see if you have the `mtcars` dataset by entering the command `mtcars`.
 
 a.  What class is `mtcars`?
 
+```{r}
+class(mtcars)
+
+##
+# `mtcars` is a data frame
+```
+
+
 \
 
-## Exercise 22
+## Question 22
 
-How many observations (rows) and variables (columns) are in the `mtcars` dataset?
+How many variables (columns) and observations (rows)are in the `mtcars` dataset?
+
+```{r}
+dim(mtcars)
+
+##
+# There are 32 observations and 11 variables in the `mtcars` dataset.
+```
+
 
 \
 
-## Exercise 23
+## Question 23
 
 Perform an descriptive analysis on the `mtcars` dataset (Hint: data types of columns, mean, median, ...).
 
-a.    How many unique values in `cyl`, `vs`, `am`,  `gear`, and `carb` (Hint: use `unique()`)?
+```{r}
+# find internal structure
+str(mtcars)
+
+# find the data distribution of the `mtcars` dataset
+summary(mtcars)
+
+# find the correlation between the `mtcars` variables
+cor(mtcars)
+```
+
+a.    What are the unique values in `cyl`, and `vs` (Hint: use `unique()`).
+
+```{r}
+# unique values in cyl
+unique(mtcars$cyl)
+
+# unique values in vs
+unique(mtcars$vs)
+```
+
+
+b.    How many unique values in `am` and `gear` (Hint: use `length()`).
+
+```{r}
+# number of unique values in am
+length(unique(mtcars$am))
+
+# number of unique values in gear
+length(unique(mtcars$gear))
+```
+
+
+
+c.    Bonus: Try using `sapply()` to find the unique values and the number of unique values in `cyl`, `vs`, `am`, `gear`, and `carb` all at once.
+
+```{r}
+# for each variable
+length(unique(mtcars$cyl))
+length(unique(mtcars$vs))
+```
+
+```{r}
+sapply(c("cyl", "vs", "am", "gear", "carb"), 
+       FUN = function(k) {
+         n_distinct(mtcars[k])
+       })
+```
+
 
 \
 
-## Exercise 24
+## Question 24
 
 Get the first 9 observations of `mtcars`.
 
 a.    Get the last 9 observations of `mtcars`
+
+```{r}
+# use tail()
+tail(mtcars, 9)
+```
+
 b.    Get the 10th to 15th, 24th to 26th, and 28th to 32th observations of `mtcars`
+
+```{r}
+mtcars[c(10:15, 24:26, 28:32), ]
+```
+
 c.    Subset a data frame of the 15th to 25th observations of `hp`, `drat`, and `qsec`
-d.    Subset the value of the 10th to 18th observations of `mpg`, `cyl`, and `disp`
+
+```{r}
+mtcars[15:25, c("hp", "drat", "qsec")]
+```
+
+d.    Subset the value of the 10th to 18th observations of `mpg` and `disp`
+
+```{r}
+# 10th to 18th observations of `mpg`
+mtcars$mpg[10:18]
+
+# 10th to 18th observations of `disp`
+mtcars$disp[10:18]
+```
+
 
 \
 
-## Exercise 25
+## Question 25
 
-Create s subset `cars` that only contains the columns: `wt`, `qsec`, and `hp` and assign this object to `carsSub`
+Create a histogram of the `mpg` using `hist()` with appropriate x axis range and label the x axis
 
-a.  What are the dimensions of `carsSub`
-b.  Extract the first 2 variables of the first 2 observations of `carsSub`
+```{r}
+hist(mtcars$mpg,
+     breaks = 30, 
+     xlim = c(10, 35),
+     xlab = "mpg")
+```
+
+
+a.    Create a scatter plot of `qsec` versus `hp` by `carb`.
+
+```{r}
+library(ggplot2)
+
+# scatter plot using ggplot
+ggplot(mtcars) +
+  aes(x = qsec, y = hp, colour = factor(carb)) +
+  geom_point()
+```
+
+
+
+
+b.    Create a dot plot of `gear` variable by `drat`.
+
+```{r}
+# dot plots using ggplot2
+ggplot(mtcars) +
+  aes(x = factor(gear), y = drat) +
+  geom_dotplot(binaxis = "y", stackdir = "center")
+```
+

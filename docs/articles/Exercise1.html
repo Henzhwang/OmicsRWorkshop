@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Exercises for material for up to Module 3.
+<meta name="description" content="Questions for material for up to Module 3.
 ">
 <title>Exercise 1 • OmicsRWorkshop</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +13,7 @@
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Exercise 1">
-<meta property="og:description" content="Exercises for material for up to Module 3.
+<meta property="og:description" content="Questions for material for up to Module 3.
 ">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -78,125 +78,297 @@
     
     
 <div class="section level3">
-<h3 id="exercise-1">Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1"></a>
+<h3 id="question-1">Question 1<a class="anchor" aria-label="anchor" href="#question-1"></a>
 </h3>
 <p>Install and load library <code>dplyr</code>.</p>
-<ol style="list-style-type: lower-alpha">
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install package</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="va">dplyr</span><span class="op">)</span></span></code></pre></div>
+</details><details><summary>
+chunk
+</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># load dplyr package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>Call help for function arrange of <code>dplyr</code>
 </li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># help page of dplyr</span></span>
+<span><span class="op">?</span><span class="va">dplyr</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-2">Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2"></a>
+<h3 id="question-2">Question 2<a class="anchor" aria-label="anchor" href="#question-2"></a>
 </h3>
 <p>Create a variable called <code>myVar</code> and assign it to <span class="math inline">\(30\)</span></p>
-<ol style="list-style-type: lower-alpha">
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">myVar</span> <span class="op">&lt;-</span> <span class="fl">30</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>What data type is <code>myVar</code>? (Use a function to check)</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">myVar</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "numeric"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html" class="external-link">typeof</a></span><span class="op">(</span><span class="va">myVar</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "double"</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
 <li>Convert <code>myVar</code> to a different data type</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># convert to string</span></span>
+<span><span class="va">myVar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">myVar</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">myVar</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "character"</span></span>
+<span></span>
+<span><span class="co"># convert to integer</span></span>
+<span><span class="va">myVar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="va">myVar</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">myVar</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "integer"</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-3">Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3"></a>
+<h3 id="question-3">Question 3<a class="anchor" aria-label="anchor" href="#question-3"></a>
 </h3>
-<p>Create a new variable called <code>my_num</code> tha contains 6
+<p>Create a new variable called <code>my_num</code> that contains 6
 numbers</p>
-<ol style="list-style-type: lower-alpha">
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_num</span> <span class="op">&lt;-</span> <span class="fl">16</span><span class="op">:</span><span class="fl">21</span></span>
+<span><span class="va">my_num</span></span>
+<span><span class="co">#&gt; [1] 16 17 18 19 20 21</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>Multiply <code>my_num</code> by 4</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_num</span> <span class="op">*</span> <span class="fl">4</span></span>
+<span><span class="co">#&gt; [1] 64 68 72 76 80 84</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-4">Exercise 4<a class="anchor" aria-label="anchor" href="#exercise-4"></a>
+<h3 id="question-4">Question 4<a class="anchor" aria-label="anchor" href="#question-4"></a>
 </h3>
 <p>Create a second variable called <code>my_char</code> that contains 5
 character strings</p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_char</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"nn"</span>, <span class="st">"oo"</span>, <span class="st">"rr"</span>, <span class="st">"ee"</span>, <span class="st">"yy"</span><span class="op">)</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-5">Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5"></a>
+<h3 id="question-5">Question 5<a class="anchor" aria-label="anchor" href="#question-5"></a>
 </h3>
 <p>Combine the two variables that <code>my_num</code> and
-<code>my_char</code> into a variable called both</p>
-<ol style="list-style-type: lower-alpha">
-<li>What is the length of both</li>
-<li>Divide both by 3, what happens?</li>
+<code>my_char</code> into a variable called <code>both</code></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">both</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">my_num</span>, <span class="va">my_char</span><span class="op">)</span></span>
+<span><span class="va">both</span></span>
+<span><span class="co">#&gt;  [1] "16" "17" "18" "19" "20" "21" "nn" "oo" "rr" "ee" "yy"</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
+<li>What is the length of <code>both</code>
+</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">both</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 11</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
+<li>Divide <code>both</code> by 3, what happens?</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">both</span><span class="op">/</span><span class="fl">3</span></span>
+<span><span class="co">#&gt; Error in both/3: non-numeric argument to binary operator</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-6">Exercise 6<a class="anchor" aria-label="anchor" href="#exercise-6"></a>
+<h3 id="question-6">Question 6<a class="anchor" aria-label="anchor" href="#question-6"></a>
 </h3>
 <p>Create a vector with elements 1, 2, 3, 4, 5, 6 and call it
 <code>x</code></p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span></span>
+<span><span class="co">#x &lt;- c(1, 2, 3, 4, 5, 6)</span></span>
+<span><span class="va">x</span></span>
+<span><span class="co">#&gt; [1] 1 2 3 4 5 6</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-7">Exercise 7<a class="anchor" aria-label="anchor" href="#exercise-7"></a>
+<h3 id="question-7">Question 7<a class="anchor" aria-label="anchor" href="#question-7"></a>
 </h3>
 <p>Create another vector with elements 10, 20, 30, 40, 50 and call it
 <code>y</code></p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">10</span>, to <span class="op">=</span> <span class="fl">50</span>, by <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#y &lt;- c(10, 20, 30, 40, 50)</span></span>
+<span><span class="va">y</span></span>
+<span><span class="co">#&gt; [1] 10 20 30 40 50</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-8">Exercise 8<a class="anchor" aria-label="anchor" href="#exercise-8"></a>
+<h3 id="question-8">Question 8<a class="anchor" aria-label="anchor" href="#question-8"></a>
 </h3>
 <p>What happens if you try to add <code>x</code> and <code>y</code>
 together? Why?</p>
 <ol style="list-style-type: lower-alpha">
 <li>Add <code>x</code> and <code>y</code> together</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
+<span><span class="co">#&gt; Warning in x + y: longer object length is not a multiple of shorter object</span></span>
+<span><span class="co">#&gt; length</span></span>
+<span><span class="co">#&gt; [1] 11 22 33 44 55 16</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># We notice that the two variables have different lengths, such that the sixth value of `x` is added to the first value in `y`. We also receive a warning for this operation.</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
 <li>Multiply <code>x</code> and <code>y</code> together. Pay attention
 to how R performs operations on vectors of the same length</li>
-<li>What happens if <code>x</code> and <code>y</code> have different
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">*</span> <span class="va">y</span></span>
+<span><span class="co">#&gt; Warning in x * y: longer object length is not a multiple of shorter object</span></span>
+<span><span class="co">#&gt; length</span></span>
+<span><span class="co">#&gt; [1]  10  40  90 160 250  60</span></span></code></pre></div>
+</details><ol start="3" style="list-style-type: lower-alpha">
+<li>What happens if <code>x</code> and <code>y</code> have the same
 length?</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
+<span><span class="co">#&gt; [1] 11 22 33 44 55</span></span>
+<span><span class="va">x</span> <span class="op">*</span> <span class="va">y</span> </span>
+<span><span class="co">#&gt; [1]  10  40  90 160 250</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-9">Exercise 9<a class="anchor" aria-label="anchor" href="#exercise-9"></a>
+<h3 id="question-9">Question 9<a class="anchor" aria-label="anchor" href="#question-9"></a>
 </h3>
 <p>Now create a vector with elements “aa”, “bb”, “cc”, “dd”, “kk” and
 call it <code>z</code></p>
-<ol style="list-style-type: lower-alpha">
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aa"</span>, <span class="st">"bb"</span>, <span class="st">"cc"</span>, <span class="st">"dd"</span>, <span class="st">"kk"</span><span class="op">)</span> </span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>What happens if you try to add <code>x</code> or <code>y</code> with
 <code>z</code> together</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">+</span> <span class="va">z</span></span>
+<span><span class="co">#&gt; Error in x + z: non-numeric argument to binary operator</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
 <li>Why does the error comes up? (Hint: data types)</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">##</span></span>
+<span><span class="co"># We notice that the data type of `x` and `y` (numeric), is different from `z` (character), and we are not able to perform computational operations on different data types.</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-10">Exercise 10<a class="anchor" aria-label="anchor" href="#exercise-10"></a>
+<h3 id="question-10">Question 10<a class="anchor" aria-label="anchor" href="#question-10"></a>
 </h3>
 <p>If <code>x &lt;- c("ww", "ee", "ff", "uu", "kk")</code>, what is the
 output for <code>x[c(2,3)]</code>?</p>
-<ol style="list-style-type: lower-alpha">
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ww"</span>, <span class="st">"ee"</span>, <span class="st">"ff"</span>, <span class="st">"uu"</span>, <span class="st">"kk"</span><span class="op">)</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] "ee" "ff"</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>Can you subset <code>x</code> in another way and get the same
 output?</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] "ee" "ff"</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-11">Exercise 11<a class="anchor" aria-label="anchor" href="#exercise-11"></a>
+<h3 id="question-11">Question 11<a class="anchor" aria-label="anchor" href="#question-11"></a>
 </h3>
 <p>If <code>x &lt;- c("ss", "aa", "ff", "kk", "bb")</code>, what will be
 the third value in the index vector operation
 <code>x[c(2,4,4)]</code>?</p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ss"</span>, <span class="st">"aa"</span>, <span class="st">"ff"</span>, <span class="st">"kk"</span>, <span class="st">"bb"</span><span class="op">)</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">4</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] "aa" "kk" "kk"</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># The third value is "kk", which is the fourth value in `x`</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-12">Exercise 12<a class="anchor" aria-label="anchor" href="#exercise-12"></a>
+<h3 id="question-12">Question 12<a class="anchor" aria-label="anchor" href="#question-12"></a>
 </h3>
 <p>Assign <code>fname &lt;-  "James"</code> and
 <code>lname &lt;- "Bond"</code>,</p>
-<ol style="list-style-type: lower-alpha">
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fname</span> <span class="op">&lt;-</span>  <span class="st">"James"</span></span>
+<span><span class="va">lname</span> <span class="op">&lt;-</span> <span class="st">"Bond"</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>Produce the output <code>James Bond</code> using a line of code
 (Hint: use <code><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste()</a></code>)</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">fname</span>, <span class="va">lname</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "James Bond"</span></span>
+<span><span class="co"># paste0(fname, " ", lname)</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-13">Exercise 13<a class="anchor" aria-label="anchor" href="#exercise-13"></a>
+<h3 id="question-13">Question 13<a class="anchor" aria-label="anchor" href="#question-13"></a>
 </h3>
 <p>Create two character vectors:</p>
 <ul>
@@ -209,17 +381,30 @@ the third value in the index vector operation
 <li>Write some R code to obtain the following output (Hint: check help
 page the function you used to create a data frame):</li>
 </ol>
-<pre><code><span><span class="co">#&gt;       Names Designation</span></span>
+<details><summary>
+chunk
+</summary><pre><code><span><span class="co">#&gt;       Names Designation</span></span>
 <span><span class="co">#&gt; 1          John Manager</span></span>
 <span><span class="co">#&gt; 2   Andrew Project Head</span></span>
 <span><span class="co">#&gt; 3 Thomas Marketing Head</span></span></code></pre>
-<p><br></p>
+</details><details><summary>
+chunk
+</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"John"</span>, <span class="st">"Andrew"</span>, <span class="st">"Thomas"</span><span class="op">)</span></span>
+<span><span class="va">Designation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Manager"</span>, <span class="st">"Project Head"</span>, <span class="st">"Marketing Head"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">names_design</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">Names</span>, <span class="va">Designation</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="st">"Names Designation"</span> <span class="op">=</span> <span class="va">names_design</span>, check.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">df</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-14">Exercise 14<a class="anchor" aria-label="anchor" href="#exercise-14"></a>
+<h3 id="question-14">Question 14<a class="anchor" aria-label="anchor" href="#question-14"></a>
 </h3>
 <p>Create the following data frame, and call it Employees</p>
-<pre><code><span><span class="co">#&gt;      Names Age Height Weight Sex</span></span>
+<details><summary>
+chunk
+</summary><pre><code><span><span class="co">#&gt;      Names Age Height Weight Sex</span></span>
 <span><span class="co">#&gt; 1     Alex  25    177     57   F</span></span>
 <span><span class="co">#&gt; 2    Lilly  31    163     69   F</span></span>
 <span><span class="co">#&gt; 3     Mark  23    190     83   M</span></span>
@@ -227,84 +412,383 @@ page the function you used to create a data frame):</li>
 <span><span class="co">#&gt; 5   Martha  76    163     70   F</span></span>
 <span><span class="co">#&gt; 6    Lucas  49    183     83   M</span></span>
 <span><span class="co">#&gt; 7 Caroline  26    164     53   F</span></span></code></pre>
-<ol style="list-style-type: lower-alpha">
+</details><details><summary>
+chunk
+</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alex"</span>, <span class="st">"Lilly"</span>, <span class="st">"Mark"</span>, <span class="st">"Oliver"</span>, <span class="st">"Martha"</span>, <span class="st">"Lucas"</span>, <span class="st">"Caroline"</span><span class="op">)</span></span>
+<span><span class="va">Age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">31</span>, <span class="fl">23</span>, <span class="fl">52</span>, <span class="fl">76</span>, <span class="fl">49</span>, <span class="fl">26</span><span class="op">)</span></span>
+<span><span class="va">Height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">177</span>, <span class="fl">163</span>, <span class="fl">190</span>, <span class="fl">179</span>, <span class="fl">163</span>, <span class="fl">183</span>, <span class="fl">164</span><span class="op">)</span></span>
+<span><span class="va">Weight</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">57</span>, <span class="fl">69</span>, <span class="fl">83</span>, <span class="fl">75</span>, <span class="fl">70</span>, <span class="fl">83</span>, <span class="fl">53</span><span class="op">)</span></span>
+<span><span class="va">Sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>, <span class="st">"F"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Employees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">Names</span>, <span class="va">Age</span>, <span class="va">Height</span>, <span class="va">Weight</span>, <span class="va">Sex</span><span class="op">)</span></span>
+<span><span class="va">Employees</span></span>
+<span><span class="co">#&gt;      Names Age Height Weight Sex</span></span>
+<span><span class="co">#&gt; 1     Alex  25    177     57   F</span></span>
+<span><span class="co">#&gt; 2    Lilly  31    163     69   F</span></span>
+<span><span class="co">#&gt; 3     Mark  23    190     83   M</span></span>
+<span><span class="co">#&gt; 4   Oliver  52    179     75   M</span></span>
+<span><span class="co">#&gt; 5   Martha  76    163     70   F</span></span>
+<span><span class="co">#&gt; 6    Lucas  49    183     83   M</span></span>
+<span><span class="co">#&gt; 7 Caroline  26    164     53   F</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>Extract specific column from a data frame</li>
-<li>Extract 3rd and 5th rows with 1st and 3rd columns<br>
-</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># extract the height column form the data frame</span></span>
+<span><span class="va">Employees</span><span class="op">$</span><span class="va">Height</span></span>
+<span><span class="co">#&gt; [1] 177 163 190 179 163 183 164</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
+<li>Extract 3rd and 5th rows with 1st and 3rd columns</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Employees</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt;    Names Height</span></span>
+<span><span class="co">#&gt; 3   Mark    190</span></span>
+<span><span class="co">#&gt; 5 Martha    163</span></span></code></pre></div>
+</details><ol start="3" style="list-style-type: lower-alpha">
 <li>Add a new column and call it Education, where everyone has an
 education status of HS</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Employees</span><span class="op">$</span><span class="va">Education</span> <span class="op">&lt;-</span> <span class="st">"HS"</span></span>
+<span><span class="va">Employees</span></span>
+<span><span class="co">#&gt;      Names Age Height Weight Sex Education</span></span>
+<span><span class="co">#&gt; 1     Alex  25    177     57   F        HS</span></span>
+<span><span class="co">#&gt; 2    Lilly  31    163     69   F        HS</span></span>
+<span><span class="co">#&gt; 3     Mark  23    190     83   M        HS</span></span>
+<span><span class="co">#&gt; 4   Oliver  52    179     75   M        HS</span></span>
+<span><span class="co">#&gt; 5   Martha  76    163     70   F        HS</span></span>
+<span><span class="co">#&gt; 6    Lucas  49    183     83   M        HS</span></span>
+<span><span class="co">#&gt; 7 Caroline  26    164     53   F        HS</span></span></code></pre></div>
+</details><ol start="4" style="list-style-type: lower-alpha">
 <li>Add new row called Louis</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">louis_row</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Louis"</span>, <span class="fl">34</span>, <span class="fl">185</span>, <span class="fl">80</span>, <span class="st">"M"</span>, <span class="st">"HS"</span><span class="op">)</span></span>
+<span><span class="va">Employees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">Employees</span>, <span class="va">louis_row</span><span class="op">)</span></span>
+<span><span class="va">Employees</span></span>
+<span><span class="co">#&gt;      Names Age Height Weight Sex Education</span></span>
+<span><span class="co">#&gt; 1     Alex  25    177     57   F        HS</span></span>
+<span><span class="co">#&gt; 2    Lilly  31    163     69   F        HS</span></span>
+<span><span class="co">#&gt; 3     Mark  23    190     83   M        HS</span></span>
+<span><span class="co">#&gt; 4   Oliver  52    179     75   M        HS</span></span>
+<span><span class="co">#&gt; 5   Martha  76    163     70   F        HS</span></span>
+<span><span class="co">#&gt; 6    Lucas  49    183     83   M        HS</span></span>
+<span><span class="co">#&gt; 7 Caroline  26    164     53   F        HS</span></span>
+<span><span class="co">#&gt; 8    Louis  34    185     80   M        HS</span></span></code></pre></div>
+</details><ol start="5" style="list-style-type: lower-alpha">
 <li>Make <code>Sex</code> column into a factor. How many factor levels
 are in the columns?</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Employees</span><span class="op">$</span><span class="va">Sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Employees</span><span class="op">$</span><span class="va">Sex</span><span class="op">)</span></span>
+<span><span class="co">#Employees &lt;- mutate(Employees, Sex = factor(Sex))</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">Employees</span><span class="op">$</span><span class="va">Sex</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "factor"</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-15">Exercise 15<a class="anchor" aria-label="anchor" href="#exercise-15"></a>
+<h3 id="question-15">Question 15<a class="anchor" aria-label="anchor" href="#question-15"></a>
 </h3>
 <p>Create the data frame below and call it Working (make sure you import
 the variable Working as character and not factor).</p>
-<pre><code><span><span class="co">#&gt;      Names Working</span></span>
+<details><summary>
+chunk
+</summary><pre><code><span><span class="co">#&gt;      Names Working</span></span>
 <span><span class="co">#&gt; 1     Alex     Yes</span></span>
 <span><span class="co">#&gt; 2    Lilly      No</span></span>
 <span><span class="co">#&gt; 3     Mark      No</span></span>
 <span><span class="co">#&gt; 4   Oliver     Yes</span></span>
 <span><span class="co">#&gt; 5   Martha     Yes</span></span>
 <span><span class="co">#&gt; 6    Lucas      No</span></span>
-<span><span class="co">#&gt; 7 Caroline     Yes</span></span></code></pre>
-<ol style="list-style-type: lower-alpha">
+<span><span class="co">#&gt; 7 Caroline     Yes</span></span>
+<span><span class="co">#&gt; 8    Louis     Yes</span></span></code></pre>
+</details><details><summary>
+chunk
+</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alex"</span>, <span class="st">"Lilly"</span>, <span class="st">"Mark"</span>, <span class="st">"Oliver"</span>, <span class="st">"Martha"</span>, <span class="st">"Lucas"</span>, <span class="st">"Caroline"</span>, <span class="st">"Louis"</span><span class="op">)</span></span>
+<span><span class="va">Working</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"Yes"</span><span class="op">)</span></span>
+<span><span class="va">Working</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">Names</span>, <span class="va">Working</span><span class="op">)</span></span>
+<span><span class="va">Working</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>Add this data frame column-wise to the previous one.</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># column bind the new column </span></span>
+<span><span class="va">Employees_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">Employees</span>, Working <span class="op">=</span> <span class="va">Working</span><span class="op">$</span><span class="va">Working</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## alternative:</span></span>
+<span><span class="co">#Employees_new &lt;- dplyr::left_join(x = Employees, y = Working, by = "Names")</span></span>
+<span></span>
+<span><span class="va">Employees_new</span></span>
+<span><span class="co">#&gt;      Names Age Height Weight Sex Education Working</span></span>
+<span><span class="co">#&gt; 1     Alex  25    177     57   F        HS     Yes</span></span>
+<span><span class="co">#&gt; 2    Lilly  31    163     69   F        HS      No</span></span>
+<span><span class="co">#&gt; 3     Mark  23    190     83   M        HS      No</span></span>
+<span><span class="co">#&gt; 4   Oliver  52    179     75   M        HS     Yes</span></span>
+<span><span class="co">#&gt; 5   Martha  76    163     70   F        HS     Yes</span></span>
+<span><span class="co">#&gt; 6    Lucas  49    183     83   M        HS      No</span></span>
+<span><span class="co">#&gt; 7 Caroline  26    164     53   F        HS     Yes</span></span>
+<span><span class="co">#&gt; 8    Louis  34    185     80   M        HS     Yes</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
 <li>How many rows and columns does the new data frame have?</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">Employees_new</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 8 7</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># The new data frame has 8 rows and 7 columns.</span></span></code></pre></div>
+</details><ol start="3" style="list-style-type: lower-alpha">
 <li>What class of data is in each column?</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">Employees_new</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    8 obs. of  7 variables:</span></span>
+<span><span class="co">#&gt;  $ Names    : chr  "Alex" "Lilly" "Mark" "Oliver" ...</span></span>
+<span><span class="co">#&gt;  $ Age      : chr  "25" "31" "23" "52" ...</span></span>
+<span><span class="co">#&gt;  $ Height   : chr  "177" "163" "190" "179" ...</span></span>
+<span><span class="co">#&gt;  $ Weight   : chr  "57" "69" "83" "75" ...</span></span>
+<span><span class="co">#&gt;  $ Sex      : Factor w/ 2 levels "F","M": 1 1 2 2 1 2 1 2</span></span>
+<span><span class="co">#&gt;  $ Education: chr  "HS" "HS" "HS" "HS" ...</span></span>
+<span><span class="co">#&gt;  $ Working  : chr  "Yes" "No" "No" "Yes" ...</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># `Names`, `Age`, `Height`, `Weight`, `Education`, `Working` are character (string), and `Sex` is a factor.</span></span></code></pre></div>
+</details><ol start="4" style="list-style-type: lower-alpha">
+<li>Convert the <code>Age</code>, <code>Height</code> and
+<code>Weight</code> to numeric data type or integer data type using
+<code>as.[data type]()</code> (Hint: <code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric()</a></code>) ;
+convert <code>Education</code> and <code>Working</code> to factor
+variable using <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>.</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># convert to numeric data type</span></span>
+<span><span class="va">Employees_new</span><span class="op">$</span><span class="va">Age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">Employees</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span></span>
+<span><span class="va">Employees_new</span><span class="op">$</span><span class="va">Height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">Employees_new</span><span class="op">$</span><span class="va">Height</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># convert to integer data type</span></span>
+<span><span class="va">Employees_new</span><span class="op">$</span><span class="va">Weight</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="va">Employees_new</span><span class="op">$</span><span class="va">Weight</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># convert to factor variable</span></span>
+<span><span class="va">Employees_new</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">Employees_new</span>,</span>
+<span>                               Education <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Education</span><span class="op">)</span>,</span>
+<span>                               Working <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">Working</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># Or all together</span></span>
+<span><span class="co"># Employees_new &lt;- Employees_new |&gt; </span></span>
+<span><span class="co">#   dplyr::mutate(</span></span>
+<span><span class="co">#     Age = as.numeric(Age),</span></span>
+<span><span class="co">#     Height = as.numeric(Height),</span></span>
+<span><span class="co">#     Weight = as.integer(Weight),</span></span>
+<span><span class="co">#     Education = factor(Education),</span></span>
+<span><span class="co">#     Working = factor(Working)</span></span>
+<span><span class="co">#   )</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">Employees_new</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    8 obs. of  7 variables:</span></span>
+<span><span class="co">#&gt;  $ Names    : chr  "Alex" "Lilly" "Mark" "Oliver" ...</span></span>
+<span><span class="co">#&gt;  $ Age      : num  25 31 23 52 76 49 26 34</span></span>
+<span><span class="co">#&gt;  $ Height   : num  177 163 190 179 163 183 164 185</span></span>
+<span><span class="co">#&gt;  $ Weight   : int  57 69 83 75 70 83 53 80</span></span>
+<span><span class="co">#&gt;  $ Sex      : Factor w/ 2 levels "F","M": 1 1 2 2 1 2 1 2</span></span>
+<span><span class="co">#&gt;  $ Education: Factor w/ 1 level "HS": 1 1 1 1 1 1 1 1</span></span>
+<span><span class="co">#&gt;  $ Working  : Factor w/ 2 levels "No","Yes": 2 1 1 2 2 1 2 2</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level2">
 <h2 id="using-the-iris-dataset-in-r">
 <strong>Using the <code>iris</code> dataset in R</strong><a class="anchor" aria-label="anchor" href="#using-the-iris-dataset-in-r"></a>
 </h2>
 <div class="section level3">
-<h3 id="exercise-16">Exercise 16<a class="anchor" aria-label="anchor" href="#exercise-16"></a>
+<h3 id="question-16">Question 16<a class="anchor" aria-label="anchor" href="#question-16"></a>
 </h3>
 <p>Extract <code>Sepal.Length</code> from the <code>iris</code> dataset
 and call the resulting vector <code>mysepal</code></p>
-<ol style="list-style-type: lower-alpha">
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mysepal</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mysepal</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 5.1 4.9 4.7 4.6 5.0 5.4</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
 <li>Get the summation, mean, median, max and min of
 <code>mysepal</code>
 </li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># summation</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">mysepal</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 876.5</span></span>
+<span></span>
+<span><span class="co"># mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">mysepal</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 5.843333</span></span>
+<span></span>
+<span><span class="co"># median</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">mysepal</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 5.8</span></span>
+<span></span>
+<span><span class="co"># max</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">mysepal</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 7.9</span></span>
+<span></span>
+<span><span class="co"># min</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">mysepal</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 4.3</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
 <li>Get the summary of <code>mysepal</code>
 </li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mysepal</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span><span class="co">#&gt;   4.300   5.100   5.800   5.843   6.400   7.900</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-17">Exercise 17<a class="anchor" aria-label="anchor" href="#exercise-17"></a>
+<h3 id="question-17">Question 17<a class="anchor" aria-label="anchor" href="#question-17"></a>
 </h3>
-<p>Get all rows of Species <code>versivcolor</code> in a new data frame.
+<p>Get all rows of Species <code>versicolor</code> in a new data frame.
 Call this data frame: <code>iris.vers</code></p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris.vers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">iris</span>, <span class="va">Species</span> <span class="op">==</span> <span class="st">"versicolor"</span><span class="op">)</span></span>
+<span><span class="co">#iris.vers &lt;- iris[iris$Species == "versicolor", ]</span></span>
+<span><span class="va">iris.vers</span></span>
+<span><span class="co">#&gt;     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species</span></span>
+<span><span class="co">#&gt; 51           7.0         3.2          4.7         1.4 versicolor</span></span>
+<span><span class="co">#&gt; 52           6.4         3.2          4.5         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 53           6.9         3.1          4.9         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 54           5.5         2.3          4.0         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 55           6.5         2.8          4.6         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 56           5.7         2.8          4.5         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 57           6.3         3.3          4.7         1.6 versicolor</span></span>
+<span><span class="co">#&gt; 58           4.9         2.4          3.3         1.0 versicolor</span></span>
+<span><span class="co">#&gt; 59           6.6         2.9          4.6         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 60           5.2         2.7          3.9         1.4 versicolor</span></span>
+<span><span class="co">#&gt; 61           5.0         2.0          3.5         1.0 versicolor</span></span>
+<span><span class="co">#&gt; 62           5.9         3.0          4.2         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 63           6.0         2.2          4.0         1.0 versicolor</span></span>
+<span><span class="co">#&gt; 64           6.1         2.9          4.7         1.4 versicolor</span></span>
+<span><span class="co">#&gt; 65           5.6         2.9          3.6         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 66           6.7         3.1          4.4         1.4 versicolor</span></span>
+<span><span class="co">#&gt; 67           5.6         3.0          4.5         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 68           5.8         2.7          4.1         1.0 versicolor</span></span>
+<span><span class="co">#&gt; 69           6.2         2.2          4.5         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 70           5.6         2.5          3.9         1.1 versicolor</span></span>
+<span><span class="co">#&gt; 71           5.9         3.2          4.8         1.8 versicolor</span></span>
+<span><span class="co">#&gt; 72           6.1         2.8          4.0         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 73           6.3         2.5          4.9         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 74           6.1         2.8          4.7         1.2 versicolor</span></span>
+<span><span class="co">#&gt; 75           6.4         2.9          4.3         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 76           6.6         3.0          4.4         1.4 versicolor</span></span>
+<span><span class="co">#&gt; 77           6.8         2.8          4.8         1.4 versicolor</span></span>
+<span><span class="co">#&gt; 78           6.7         3.0          5.0         1.7 versicolor</span></span>
+<span><span class="co">#&gt; 79           6.0         2.9          4.5         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 80           5.7         2.6          3.5         1.0 versicolor</span></span>
+<span><span class="co">#&gt; 81           5.5         2.4          3.8         1.1 versicolor</span></span>
+<span><span class="co">#&gt; 82           5.5         2.4          3.7         1.0 versicolor</span></span>
+<span><span class="co">#&gt; 83           5.8         2.7          3.9         1.2 versicolor</span></span>
+<span><span class="co">#&gt; 84           6.0         2.7          5.1         1.6 versicolor</span></span>
+<span><span class="co">#&gt; 85           5.4         3.0          4.5         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 86           6.0         3.4          4.5         1.6 versicolor</span></span>
+<span><span class="co">#&gt; 87           6.7         3.1          4.7         1.5 versicolor</span></span>
+<span><span class="co">#&gt; 88           6.3         2.3          4.4         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 89           5.6         3.0          4.1         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 90           5.5         2.5          4.0         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 91           5.5         2.6          4.4         1.2 versicolor</span></span>
+<span><span class="co">#&gt; 92           6.1         3.0          4.6         1.4 versicolor</span></span>
+<span><span class="co">#&gt; 93           5.8         2.6          4.0         1.2 versicolor</span></span>
+<span><span class="co">#&gt; 94           5.0         2.3          3.3         1.0 versicolor</span></span>
+<span><span class="co">#&gt; 95           5.6         2.7          4.2         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 96           5.7         3.0          4.2         1.2 versicolor</span></span>
+<span><span class="co">#&gt; 97           5.7         2.9          4.2         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 98           6.2         2.9          4.3         1.3 versicolor</span></span>
+<span><span class="co">#&gt; 99           5.1         2.5          3.0         1.1 versicolor</span></span>
+<span><span class="co">#&gt; 100          5.7         2.8          4.1         1.3 versicolor</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-18">Exercise 18<a class="anchor" aria-label="anchor" href="#exercise-18"></a>
+<h3 id="question-18">Question 18<a class="anchor" aria-label="anchor" href="#question-18"></a>
 </h3>
 <p>Get a vector called <code>sepal.dif</code> with the difference
 between <code>Sepal.Length</code> and <code>Sepal.Width</code> of
 <code>versicolor</code> plants</p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sepal.dif</span> <span class="op">&lt;-</span> <span class="va">iris.vers</span><span class="op">$</span><span class="va">Sepal.Length</span> <span class="op">-</span> <span class="va">iris.vers</span><span class="op">$</span><span class="va">Sepal.Width</span></span>
+<span><span class="va">sepal.dif</span></span>
+<span><span class="co">#&gt;  [1] 3.8 3.2 3.8 3.2 3.7 2.9 3.0 2.5 3.7 2.5 3.0 2.9 3.8 3.2 2.7 3.6 2.6 3.1 4.0</span></span>
+<span><span class="co">#&gt; [20] 3.1 2.7 3.3 3.8 3.3 3.5 3.6 4.0 3.7 3.1 3.1 3.1 3.1 3.1 3.3 2.4 2.6 3.6 4.0</span></span>
+<span><span class="co">#&gt; [39] 2.6 3.0 2.9 3.1 3.2 2.7 2.9 2.7 2.8 3.3 2.6 2.9</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-19">Exercise 19<a class="anchor" aria-label="anchor" href="#exercise-19"></a>
+<h3 id="question-19">Question 19<a class="anchor" aria-label="anchor" href="#question-19"></a>
 </h3>
 <p>Update (add) <code>iris.vers</code> with the new column
 <code>sepal.dif</code></p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris.vers</span><span class="op">$</span><span class="va">`Sepal_diff`</span> <span class="op">&lt;-</span> <span class="va">sepal.dif</span></span>
+<span><span class="co">#iris.vers &lt;- cbind(iris.vers, Speal_diff = sepal.dif)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">iris.vers</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species Sepal_diff</span></span>
+<span><span class="co">#&gt; 51          7.0         3.2          4.7         1.4 versicolor        3.8</span></span>
+<span><span class="co">#&gt; 52          6.4         3.2          4.5         1.5 versicolor        3.2</span></span>
+<span><span class="co">#&gt; 53          6.9         3.1          4.9         1.5 versicolor        3.8</span></span>
+<span><span class="co">#&gt; 54          5.5         2.3          4.0         1.3 versicolor        3.2</span></span>
+<span><span class="co">#&gt; 55          6.5         2.8          4.6         1.5 versicolor        3.7</span></span>
+<span><span class="co">#&gt; 56          5.7         2.8          4.5         1.3 versicolor        2.9</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-20">Exercise 20<a class="anchor" aria-label="anchor" href="#exercise-20"></a>
+<h3 id="question-20">Question 20<a class="anchor" aria-label="anchor" href="#question-20"></a>
 </h3>
-<p>How many observations in <code>iris</code> gave a Sepal.Length
+<p>How many observations in <code>iris</code> gave a Sepal Length
 greater or equal 5?</p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># nrow() finds the number of rows (observations)</span></span>
+<span><span class="co"># subset() select the Sepal.Length &gt;= 5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">iris</span>, <span class="va">Sepal.Length</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 128</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># alternatively:</span></span>
+<span><span class="co"># iris |&gt; </span></span>
+<span><span class="co">#   dplyr::filter(Sepal.Length &gt;= 5) |&gt; </span></span>
+<span><span class="co">#   nrow()</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 </div>
 <div class="section level2">
@@ -312,66 +796,291 @@ greater or equal 5?</p>
 <strong>Using the <code>mtcars</code> dataset in R</strong><a class="anchor" aria-label="anchor" href="#using-the-mtcars-dataset-in-r"></a>
 </h2>
 <div class="section level3">
-<h3 id="exercise-21">Exercise 21<a class="anchor" aria-label="anchor" href="#exercise-21"></a>
+<h3 id="question-21">Question 21<a class="anchor" aria-label="anchor" href="#question-21"></a>
 </h3>
 <p>Check to see if you have the <code>mtcars</code> dataset by entering
 the command <code>mtcars</code>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>What class is <code>mtcars</code>?</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "data.frame"</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># `mtcars` is a data frame</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-22">Exercise 22<a class="anchor" aria-label="anchor" href="#exercise-22"></a>
+<h3 id="question-22">Question 22<a class="anchor" aria-label="anchor" href="#question-22"></a>
 </h3>
-<p>How many observations (rows) and variables (columns) are in the
+<p>How many variables (columns) and observations (rows)are in the
 <code>mtcars</code> dataset?</p>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 32 11</span></span>
+<span></span>
+<span><span class="co">##</span></span>
+<span><span class="co"># There are 32 observations and 11 variables in the `mtcars` dataset.</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-23">Exercise 23<a class="anchor" aria-label="anchor" href="#exercise-23"></a>
+<h3 id="question-23">Question 23<a class="anchor" aria-label="anchor" href="#question-23"></a>
 </h3>
 <p>Perform an descriptive analysis on the <code>mtcars</code> dataset
 (Hint: data types of columns, mean, median, …).</p>
-<ol style="list-style-type: lower-alpha">
-<li>How many unique values in <code>cyl</code>, <code>vs</code>,
-<code>am</code>, <code>gear</code>, and <code>carb</code> (Hint: use
-<code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code>)?</li>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># find internal structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    32 obs. of  11 variables:</span></span>
+<span><span class="co">#&gt;  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...</span></span>
+<span><span class="co">#&gt;  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...</span></span>
+<span><span class="co">#&gt;  $ disp: num  160 160 108 258 360 ...</span></span>
+<span><span class="co">#&gt;  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...</span></span>
+<span><span class="co">#&gt;  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...</span></span>
+<span><span class="co">#&gt;  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...</span></span>
+<span><span class="co">#&gt;  $ qsec: num  16.5 17 18.6 19.4 17 ...</span></span>
+<span><span class="co">#&gt;  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...</span></span>
+<span><span class="co">#&gt;  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">#&gt;  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...</span></span>
+<span><span class="co">#&gt;  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</span></span>
+<span></span>
+<span><span class="co"># find the data distribution of the `mtcars` dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       mpg             cyl             disp             hp       </span></span>
+<span><span class="co">#&gt;  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  </span></span>
+<span><span class="co">#&gt;  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  </span></span>
+<span><span class="co">#&gt;  Median :19.20   Median :6.000   Median :196.3   Median :123.0  </span></span>
+<span><span class="co">#&gt;  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  </span></span>
+<span><span class="co">#&gt;  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  </span></span>
+<span><span class="co">#&gt;       drat             wt             qsec             vs        </span></span>
+<span><span class="co">#&gt;  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  </span></span>
+<span><span class="co">#&gt;  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  </span></span>
+<span><span class="co">#&gt;  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  </span></span>
+<span><span class="co">#&gt;  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  </span></span>
+<span><span class="co">#&gt;  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  </span></span>
+<span><span class="co">#&gt;        am              gear            carb      </span></span>
+<span><span class="co">#&gt;  Min.   :0.0000   Min.   :3.000   Min.   :1.000  </span></span>
+<span><span class="co">#&gt;  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  </span></span>
+<span><span class="co">#&gt;  Median :0.0000   Median :4.000   Median :2.000  </span></span>
+<span><span class="co">#&gt;  Mean   :0.4062   Mean   :3.688   Mean   :2.812  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  </span></span>
+<span><span class="co">#&gt;  Max.   :1.0000   Max.   :5.000   Max.   :8.000</span></span>
+<span></span>
+<span><span class="co"># find the correlation between the `mtcars` variables</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             mpg        cyl       disp         hp        drat         wt</span></span>
+<span><span class="co">#&gt; mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594</span></span>
+<span><span class="co">#&gt; cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958</span></span>
+<span><span class="co">#&gt; disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799</span></span>
+<span><span class="co">#&gt; hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479</span></span>
+<span><span class="co">#&gt; drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406</span></span>
+<span><span class="co">#&gt; wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000</span></span>
+<span><span class="co">#&gt; qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159</span></span>
+<span><span class="co">#&gt; vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157</span></span>
+<span><span class="co">#&gt; am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953</span></span>
+<span><span class="co">#&gt; gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870</span></span>
+<span><span class="co">#&gt; carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059</span></span>
+<span><span class="co">#&gt;             qsec         vs          am       gear        carb</span></span>
+<span><span class="co">#&gt; mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507</span></span>
+<span><span class="co">#&gt; cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829</span></span>
+<span><span class="co">#&gt; disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686</span></span>
+<span><span class="co">#&gt; hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247</span></span>
+<span><span class="co">#&gt; drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980</span></span>
+<span><span class="co">#&gt; wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594</span></span>
+<span><span class="co">#&gt; qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923</span></span>
+<span><span class="co">#&gt; vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714</span></span>
+<span><span class="co">#&gt; am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435</span></span>
+<span><span class="co">#&gt; gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284</span></span>
+<span><span class="co">#&gt; carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</span></span></code></pre></div>
+</details><ol style="list-style-type: lower-alpha">
+<li>What are the unique values in <code>cyl</code>, and <code>vs</code>
+(Hint: use <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code>).</li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># unique values in cyl</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 6 4 8</span></span>
+<span></span>
+<span><span class="co"># unique values in vs</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">vs</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0 1</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
+<li>How many unique values in <code>am</code> and <code>gear</code>
+(Hint: use <code><a href="https://rdrr.io/r/base/length.html" class="external-link">length()</a></code>).</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># number of unique values in am</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span></span>
+<span><span class="co"># number of unique values in gear</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">gear</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3</span></span></code></pre></div>
+</details><ol start="3" style="list-style-type: lower-alpha">
+<li>Bonus: Try using <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply()</a></code> to find the unique values and
+the number of unique values in <code>cyl</code>, <code>vs</code>,
+<code>am</code>, <code>gear</code>, and <code>carb</code> all at
+once.</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># for each variable</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">vs</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+</details><details><summary>
+chunk
+</summary><div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cyl"</span>, <span class="st">"vs"</span>, <span class="st">"am"</span>, <span class="st">"gear"</span>, <span class="st">"carb"</span><span class="op">)</span>, </span>
+<span>       FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
+<span>         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/n_distinct.html" class="external-link">n_distinct</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="va">k</span><span class="op">]</span><span class="op">)</span></span>
+<span>       <span class="op">}</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  cyl   vs   am gear carb </span></span>
+<span><span class="co">#&gt;    3    2    2    3    6</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-24">Exercise 24<a class="anchor" aria-label="anchor" href="#exercise-24"></a>
+<h3 id="question-24">Question 24<a class="anchor" aria-label="anchor" href="#question-24"></a>
 </h3>
 <p>Get the first 9 observations of <code>mtcars</code>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Get the last 9 observations of <code>mtcars</code>
 </li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># use tail()</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fl">9</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                   mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span><span class="co">#&gt; Camaro Z28       13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4</span></span>
+<span><span class="co">#&gt; Pontiac Firebird 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2</span></span>
+<span><span class="co">#&gt; Fiat X1-9        27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1</span></span>
+<span><span class="co">#&gt; Porsche 914-2    26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2</span></span>
+<span><span class="co">#&gt; Lotus Europa     30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</span></span>
+<span><span class="co">#&gt; Ford Pantera L   15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4</span></span>
+<span><span class="co">#&gt; Ferrari Dino     19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6</span></span>
+<span><span class="co">#&gt; Maserati Bora    15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</span></span>
+<span><span class="co">#&gt; Volvo 142E       21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</span></span></code></pre></div>
+</details><ol start="2" style="list-style-type: lower-alpha">
 <li>Get the 10th to 15th, 24th to 26th, and 28th to 32th observations of
 <code>mtcars</code>
 </li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span><span class="op">:</span><span class="fl">15</span>, <span class="fl">24</span><span class="op">:</span><span class="fl">26</span>, <span class="fl">28</span><span class="op">:</span><span class="fl">32</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="co">#&gt;                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span><span class="co">#&gt; Merc 280           19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4</span></span>
+<span><span class="co">#&gt; Merc 280C          17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4</span></span>
+<span><span class="co">#&gt; Merc 450SE         16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3</span></span>
+<span><span class="co">#&gt; Merc 450SL         17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3</span></span>
+<span><span class="co">#&gt; Merc 450SLC        15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3</span></span>
+<span><span class="co">#&gt; Cadillac Fleetwood 10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4</span></span>
+<span><span class="co">#&gt; Camaro Z28         13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4</span></span>
+<span><span class="co">#&gt; Pontiac Firebird   19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2</span></span>
+<span><span class="co">#&gt; Fiat X1-9          27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1</span></span>
+<span><span class="co">#&gt; Lotus Europa       30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</span></span>
+<span><span class="co">#&gt; Ford Pantera L     15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4</span></span>
+<span><span class="co">#&gt; Ferrari Dino       19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6</span></span>
+<span><span class="co">#&gt; Maserati Bora      15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</span></span>
+<span><span class="co">#&gt; Volvo 142E         21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</span></span></code></pre></div>
+</details><ol start="3" style="list-style-type: lower-alpha">
 <li>Subset a data frame of the 15th to 25th observations of
 <code>hp</code>, <code>drat</code>, and <code>qsec</code>
 </li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">[</span><span class="fl">15</span><span class="op">:</span><span class="fl">25</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hp"</span>, <span class="st">"drat"</span>, <span class="st">"qsec"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt;                      hp drat  qsec</span></span>
+<span><span class="co">#&gt; Cadillac Fleetwood  205 2.93 17.98</span></span>
+<span><span class="co">#&gt; Lincoln Continental 215 3.00 17.82</span></span>
+<span><span class="co">#&gt; Chrysler Imperial   230 3.23 17.42</span></span>
+<span><span class="co">#&gt; Fiat 128             66 4.08 19.47</span></span>
+<span><span class="co">#&gt; Honda Civic          52 4.93 18.52</span></span>
+<span><span class="co">#&gt; Toyota Corolla       65 4.22 19.90</span></span>
+<span><span class="co">#&gt; Toyota Corona        97 3.70 20.01</span></span>
+<span><span class="co">#&gt; Dodge Challenger    150 2.76 16.87</span></span>
+<span><span class="co">#&gt; AMC Javelin         150 3.15 17.30</span></span>
+<span><span class="co">#&gt; Camaro Z28          245 3.73 15.41</span></span>
+<span><span class="co">#&gt; Pontiac Firebird    175 3.08 17.05</span></span></code></pre></div>
+</details><ol start="4" style="list-style-type: lower-alpha">
 <li>Subset the value of the 10th to 18th observations of
-<code>mpg</code>, <code>cyl</code>, and <code>disp</code>
+<code>mpg</code> and <code>disp</code>
 </li>
 </ol>
-<p><br></p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># 10th to 18th observations of `mpg`</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">[</span><span class="fl">10</span><span class="op">:</span><span class="fl">18</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] 19.2 17.8 16.4 17.3 15.2 10.4 10.4 14.7 32.4</span></span>
+<span></span>
+<span><span class="co"># 10th to 18th observations of `disp`</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">disp</span><span class="op">[</span><span class="fl">10</span><span class="op">:</span><span class="fl">18</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] 167.6 167.6 275.8 275.8 275.8 472.0 460.0 440.0  78.7</span></span></code></pre></div>
+</details><p><br></p>
 </div>
 <div class="section level3">
-<h3 id="exercise-25">Exercise 25<a class="anchor" aria-label="anchor" href="#exercise-25"></a>
+<h3 id="question-25">Question 25<a class="anchor" aria-label="anchor" href="#question-25"></a>
 </h3>
-<p>Create s subset <code>cars</code> that only contains the columns:
-<code>wt</code>, <code>qsec</code>, and <code>hp</code> and assign this
-object to <code>carsSub</code></p>
-<ol style="list-style-type: lower-alpha">
-<li>What are the dimensions of <code>carsSub</code>
-</li>
-<li>Extract the first 2 variables of the first 2 observations of
-<code>carsSub</code>
-</li>
+<p>Create a histogram of the <code>mpg</code> using <code><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist()</a></code>
+with appropriate x axis range and label the x axis</p>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>,</span>
+<span>     breaks <span class="op">=</span> <span class="fl">30</span>, </span>
+<span>     xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">35</span><span class="op">)</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"mpg"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Exercise1_files/figure-html/unnamed-chunk-61-1.png" width="700"></p>
+</details><ol style="list-style-type: lower-alpha">
+<li>Create a scatter plot of <code>qsec</code> versus <code>hp</code> by
+<code>carb</code>.</li>
 </ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># scatter plot using ggplot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">qsec</span>, y <span class="op">=</span> <span class="va">hp</span>, colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">carb</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Exercise1_files/figure-html/unnamed-chunk-62-1.png" width="700"></p>
+</details><ol start="2" style="list-style-type: lower-alpha">
+<li>Create a dot plot of <code>gear</code> variable by
+<code>drat</code>.</li>
+</ol>
+<details><summary>
+chunk
+</summary><div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># dot plots using ggplot2</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">gear</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">drat</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_dotplot.html" class="external-link">geom_dotplot</a></span><span class="op">(</span>binaxis <span class="op">=</span> <span class="st">"y"</span>, stackdir <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Bin width defaults to 1/30 of the range of the data. Pick better value with</span></span>
+<span><span class="co">#&gt; `binwidth`.</span></span></code></pre></div>
+<p><img src="Exercise1_files/figure-html/unnamed-chunk-63-1.png" width="700"></p>
+</details>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
