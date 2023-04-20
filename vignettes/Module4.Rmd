@@ -163,7 +163,6 @@ if (x < 5) {
 
 <!-- ``` -->
 
-\
 
 ## `for` loop
 
@@ -283,7 +282,7 @@ The general syntax for a while loop is as follow,
 
 ```{r eval=FALSE}
 while (condition) {
-  
+      ## Code to execute if the condition is true
 }
 ```
 
@@ -336,10 +335,6 @@ Functions in R, as we have use a lot, are reusable blocks of code that perform a
 ### Why use functions?
 
 Functions in R are extremely versatile and can be used for a wide range of tasks, from simple mathematical calculations to complex data manipulations. They allow you to encapsulate a specific piece of logic or functionality into a modular and reusable unit, making your code more efficient and easier to maintain.
-
-
-Functions in R are extremely versatile and can be used for a wide range of tasks, from simple mathematical calculations to complex data manipulations. They allow you to encapsulate a specific piece of logic or functionality into a modular and reusable unit, making your code more efficient and easier to maintain.
-
 
 ### Stutures of functions
 

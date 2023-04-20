@@ -179,7 +179,7 @@ distribution. If <code>x</code> is greater than 2, then we set
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"x value is:"</span>, <span class="va">x</span>, <span class="st">"and y value is: "</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "x value is: 14.8886248390428 and y value is:  2"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "x value is: -0.35349315222046 and y value is:  -1"</span></span></code></pre></div>
 <p><br>
 Check point:</p>
 <p>Can you create a <code>if-else</code> syntax with the following
@@ -197,7 +197,7 @@ value greater than equal to 5. Print your judgement using
 <span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"The `x` value is"</span>, <span class="va">x</span>, <span class="st">"and the value is large."</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 10 and the value is large."</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "The `x` value is 6 and the value is large."</span></span></code></pre></div>
 <p><br></p>
 <!-- Example 2: Determining the letter grade for a test score -->
 <!-- ```{r} -->
@@ -218,7 +218,6 @@ value greater than equal to 5. Print your judgement using
 <!-- # Print the letter grade -->
 <!-- print(paste("Your grade is:", grade)) -->
 <!-- ``` -->
-<p><br></p>
 </div>
 </div>
 <div class="section level2">
@@ -320,16 +319,16 @@ index-type variable.</p>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"The `x` value is"</span>, <span class="va">x</span>, <span class="st">"and the value is large."</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 2 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 2 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 4 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 8 and the value is large."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 10 and the value is large."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 3 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 4 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 5 and the value is large."</span></span>
 <span><span class="co">#&gt; [1] "The `x` value is 9 and the value is large."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 10 and the value is large."</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "The `x` value is 6 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 6 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 3 and the value is small."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 2 and the value is small."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 7 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 7 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 6 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 5 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 1 and the value is small."</span></span></code></pre></div>
 <p>In this for loop, notice the value variable <code>i</code> is not use
 any where inside the for loop.</p>
 <p><br></p>
@@ -384,7 +383,7 @@ that are executed if the condition is true.</p>
 <p>The general syntax for a while loop is as follow,</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">while</span> <span class="op">(</span><span class="va">condition</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  </span>
+<span>      <span class="co">## Code to execute if the condition is true</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>The condition statement is similar to the condition statement in the
 <code>if-else</code> statement, it determines whether the loop should
@@ -453,11 +452,6 @@ into smaller, more manageable pieces of code.</p>
 <div class="section level3">
 <h3 id="why-use-functions">Why use functions?<a class="anchor" aria-label="anchor" href="#why-use-functions"></a>
 </h3>
-<p>Functions in R are extremely versatile and can be used for a wide
-range of tasks, from simple mathematical calculations to complex data
-manipulations. They allow you to encapsulate a specific piece of logic
-or functionality into a modular and reusable unit, making your code more
-efficient and easier to maintain.</p>
 <p>Functions in R are extremely versatile and can be used for a wide
 range of tasks, from simple mathematical calculations to complex data
 manipulations. They allow you to encapsulate a specific piece of logic
