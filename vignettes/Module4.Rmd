@@ -1,0 +1,597 @@
+---
+title: "Module 4: Control Structure and Functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Module 4: Control Structure and Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Control Structure
+
+Control structures play a crucial role in R programming as they offer the ability to regulate the sequence of execution for a series of R expressions. Essentially, they allow you to add a layer of logic to your R code, enabling you to avoid the monotony of repeatedly executing the same R code. By utilizing control structures, you can easily respond to changing inputs or data attributes and execute different R expressions accordingly, leading to more dynamic and adaptable code.
+
+There are commonly six types of control structures in R:
+
+-   `if` and `else` - test a condition and act on it
+-   `for` - execute a loop a fixed number of times
+-   `while` - execute a loop while a condition is `TRUE`
+-   `repeat` - execute an infinite loop (must `break` out of it to stop)
+-   `break` - break the execution of a loop
+-   `next` - skip an iteration of a loop
+
+By leveraging control structures effectively, you can significantly enhance the efficiency and readability of your R code. It's important to note, however, that improper usage of control structures can lead to errors and inefficiencies, so it's essential to have a thorough understanding of their capabilities and limitations.
+
+
+### `if` - `else` statement
+
+In R, if-else statements are fundamental control structures used for the conditional execution of code. They enable you to specify different code blocks to execute based on the evaluation of a logical expression inside the `if` statement.
+
+If the expression is `TRUE`, the code inside the `if` statement is executed. While `if(<condition>) == if(<condition> == TRUE)`, and `{}` treats the code inside as a single expression (execute all code inside the `{}` at once), the syntax goes as
+
+```{r eval=FALSE}
+if (<condition>) {
+      ## Code to execute if the condition is true
+}
+```
+
+Notice that the above command does not perform any evaluation when the condition is `FALSE`. We want to use `else` statement to execute any code instead when the condition is `FALSE`. The syntax goes as,
+
+```{r eval=FALSE}
+if (<condition1>) {
+      ## Code to execute if the condition is true
+  
+} else {
+      ## Code to execute if the condition is false
+  
+}
+```
+
+If you have a series of test (multiple condition for different actions), we use the `else if` statement
+
+```{r eval=FALSE}
+if (<condition1>) {
+      ## Code to execute if the condition1 is true
+  
+} else if (<condition2>){
+      ## Code to execute if the condition2 is true
+  
+} else if (<condition2>){
+      ## Code to execute if the condition3 is true
+  
+} else {
+      ## Code to execute if neither condition1, 2, 3, 4 is true
+  
+}
+```
+
+For example, we want to generate a value `x` from a normal distribution. If `x` is greater than 2, then we set `y` to be 5, else, we set `y` to be 0.
+
+```{r}
+# generating `x` value
+x <- rnorm(1, mean = 0, 5)
+
+# if statement
+if (x > 2){
+  y <- 5
+} else {
+  y <- 0
+}
+
+
+```
+
+We can also add more tests to strictly define the value of `y`.
+
+```{r}
+x <- rnorm(1, mean = 0, 5)
+
+if (x < 0) {
+  y <- -1
+} else if (x > 0 & x < 1) {
+  y <- 0
+} else if (x > 1 & x < 3) {
+  y <- 1
+} else {
+  y <- 2
+}
+
+print(paste("x value is:", x, "and y value is: ", y))
+```
+
+\
+Check point:
+
+Can you create a `if-else` syntax with the following conditions:
+
+Let `x` be a random number from 1 to 10 (You can use `sample()`). Consider if the `x` value is small if the value is less than 5, and if the `x` value is larger if value greater than equal to 5. Print your judgement using `print(paste("The`x`value is", x, "and the value is small."))`.
+
+```{r}
+x <- sample(1:10, size = 1)
+
+if (x < 5) {
+  print(paste("The `x` value is", x, "and the value is small."))
+} else {
+  print(paste("The `x` value is", x, "and the value is large."))
+}
+```
+
+\
+
+<!-- Example 2: Determining the letter grade for a test score -->
+
+<!-- ```{r} -->
+
+<!-- # Define a test score -->
+
+<!-- score <- 85 -->
+
+<!-- # Determine the letter grade based on the score -->
+
+<!-- if (score >= 90) { -->
+
+<!--   grade <- "A" -->
+
+<!-- } else if (score >= 80) { -->
+
+<!--   grade <- "B" -->
+
+<!-- } else if (score >= 70) { -->
+
+<!--   grade <- "C" -->
+
+<!-- } else if (score >= 60) { -->
+
+<!--   grade <- "D" -->
+
+<!-- } else { -->
+
+<!--   grade <- "F" -->
+
+<!-- } -->
+
+<!-- # Print the letter grade -->
+
+<!-- print(paste("Your grade is:", grade)) -->
+
+<!-- ``` -->
+
+\
+
+## `for` loop
+
+In R, loops are used to execute a block of code repeatedly, and it can simplify the execution of repetitive tasks. A `for` loop is a specific type of loop that iterates over a sequence of values and performs a set of instructions on each value.
+
+The general syntax for a `for` loop is the following where `value` is a variable that takes on each value in the specified sequence, and the code inside the loop is executed once for each value.
+
+```{r eval=FALSE}
+for (value in sequence) {
+  # Code to execute on each value
+}
+```
+
+Consider a simple example, we want to print value from 1 to 10 individually. If not using the `for` loop, we may need to print each value such as
+
+```{r}
+print(1)
+print(2)
+# etc.
+```
+
+However, with using a for loop, we can print these ten value in one expression iteratively. This loop takes the `i` variable and in each iteration of the loop gives it values 1, 2, 3, ..., 10, executes the code within the curly braces (`print(i)`), and then the loop exits.
+
+```{r}
+for (i in 1:10) {
+  print(i)
+}
+```
+
+Instead of printing out the `i` variable, suppose we have a vector of numbers and we want to calculate the sum of all the numbers. We could use a for loop to iterate over the vector and add up each value:
+
+```{r}
+total <- 0
+for (i in 1:100) {
+  total = total + i
+}
+print(total)
+```
+
+Furthermore, we can define the sequence by the specific vector or list or any data structure. The following for loop share the same behavior.
+
+```{r}
+letters <- c("aa", "dd", "gg", "ee", "ef", "rg")
+
+for (j in seq_along(letters)) {
+  print(letters[j])
+}
+```
+
+Notice that, for this for loop, it is not necessary to use an index-type variable.
+
+```{r}
+for (z in letters) {
+  print(z)
+}
+```
+
+\
+
+Check point:
+
+Use for loop to iterate over the vector `x <- c(2, 3, 4, 7, 8, 9)` and multiple each value.\
+
+We can now consider the check-point exercise we had in the `if-else`. We now want to use the for loop to determine 10 `x` value if they are large or small.
+
+```{r}
+for (i in 1:10) {
+  x <- sample(1:10, size = 1)
+
+  if (x < 5) {
+    print(paste("The `x` value is", x, "and the value is small."))
+  } else {
+    print(paste("The `x` value is", x, "and the value is large."))
+  }
+}
+```
+
+In this for loop, notice the value variable `i` is not use any where inside the for loop.
+
+\
+
+## Nested `for` loop
+
+A nested `for` loop is a loop inside another loop. The outer loop controls the number of iterations and the inner loop exectues a specific set of instructions on each iteration of the outer loop.
+
+It is useful for performing complex calculations and data manipulation tasks that involve iterating over two or more dimensions of data, where you are allow to iterate over every combination of value in that data structure.
+
+However, it is important to note that nested loops can be computationally expensive and may slow down you program if used improperly. It's important to carefully consider whether a nested loop is necessary for a particular task and to optimize your code to reduce the number of iterations whenever possible.
+
+Here's an example of a nested loop apply to a matrix,
+
+```{r}
+# Define a matrix
+my_matrix <- matrix(1:9, nrow = 3, ncol = 3)
+my_matrix
+
+# Iterate over each row of the matrix
+for (i in 1:nrow(my_matrix)) {
+  # Iterate over each column of the matrix
+  for (j in 1:ncol(my_matrix)) {
+    # Multiply each element of the matrix by 2
+    my_matrix[i,j] <- my_matrix[i,j] * 2
+  }
+}
+
+# Print the updated matrix
+print(my_matrix)
+```
+
+\
+\
+## `while` loop
+
+A `while` loop is a control structure that allows you to execute a set of instructions repeatedly while a certain condition is true. The `while` loop consists of a condition that is evaluated at the beginning of each iteration, and a set of instructions that are executed if the condition is true.
+
+The general syntax for a while loop is as follow,
+
+```{r eval=FALSE}
+while (condition) {
+  
+}
+```
+
+The condition statement is similar to the condition statement in the `if-else` statement, it determines whether the loop should continue or terminate. If the condition is true, the code inside the `while` loop is executed. This process is repeated until the test expression becomes false, at which point the loop terminates and control is passed to the next statement.
+
+Thus, the main difference between a `while` loop and a `for` loop is, the `for` loop will only execute the code chunk for a given number of times while the `while` loop iterative the code chunk until the condition for the `while` loop is false (a certain condition is met).
+
+To this reason, it's important to be careful when using while loops, as it's easy to create an infinite loop if the condition is never false. Hence, it is very important to ensure the test expression will eventually become `FALSE`.
+
+An easy application of `while` loop can be print the numbers from 1 to 10 using a while loop,
+
+```{r}
+num <- 1
+
+while (num <= 10) {
+  print(num)
+  num <- num + 1
+}
+```
+
+An more explicit example of a while test with having more than one conidtion in a for loop is given as,
+
+```{r}
+set.seed(343)
+i <- 0  # number of iterations
+p <- 16
+
+while (p > 13 & p < 18) {
+  i = i + 1   # add one number of iterations
+  
+  coin <- rbinom(n = 1, size = 1, prob = 0.5) 
+  
+  if (coin == 1) {
+    p <- p + 1
+  } else {
+    p <- p - 1
+  }
+}
+
+print(paste0("The value of p is ", p, " and the number of iterations used is ", i, "."))
+```
+
+
+\
+
+## Functions in R
+
+Functions in R, as we have use a lot, are reusable blocks of code that perform a specific task or set of tasks. They are fundamental building block of programming, allowing you to break down complex tasks into smaller, more manageable pieces of code.
+
+### Why use functions?
+
+Functions in R are extremely versatile and can be used for a wide range of tasks, from simple mathematical calculations to complex data manipulations. They allow you to encapsulate a specific piece of logic or functionality into a modular and reusable unit, making your code more efficient and easier to maintain.
+
+
+Functions in R are extremely versatile and can be used for a wide range of tasks, from simple mathematical calculations to complex data manipulations. They allow you to encapsulate a specific piece of logic or functionality into a modular and reusable unit, making your code more efficient and easier to maintain.
+
+
+### Stutures of functions
+
+Functions consists of a function definition and a function call. The function definition specifies the name of the function, the arguments that the function accepts, and the set of instructions that the function executes. While the function call is where the function is invoked with specific argument, causing the instructions in the function definition to be executed with those arguments.
+
+One thing to keep in mind that, **the variables used inside a function it not callable in the R environment.** In other words, they only exist in the function environment, but they do not exist (save to) in the R environment.
+
+For instance, we want to write a simple function that to perform summation for all values in a vector. We write
+
+```{r eval=FALSE}
+sum_all <- function(vector) {    # function definition
+  
+  # function call
+  results <- sum(vector)
+  
+  # return the results
+  return(results)
+}
+```
+
+In this function, `sum_all()` is the name of the function. `function()` is used to clarifies to R that we are writing a function, where `vector` is the arguments (input) that this `sum_all` function accept. It is easy to see that command `sum(vector)` is the function call of this function, where it apply the summation function `sum()` to the vector `vector`, and assign the results to the variable `result`. Lastly, we want to return the result values to the R environment using `return()`. Notice that `return()` is not necessary as the function will automatically return the last R object in the block, but specifying `return()` is strongly recommended.
+
+
+
+### Writing a simple function
+
+We now want to write some simple functions that allows us to perform evaluation in R.
+
+1. We want to adds two numbers together and returns the results
+
+```{r}
+add_numbers <- function() {
+  x <- 5
+  y <- 7
+  
+  result <- x + y
+  
+  return(result)
+}
+add_numbers()
+```
+
+
+```{r}
+add_numbers <- function(x, y) {
+  result <- x + y 
+  return(result)
+}
+
+# evaluation
+add_numbers(x = 5, y = 7)
+add_numbers(x = 4, y = 6)
+```
+
+
+2. We can calculate the mean of a vector of numbers:
+
+```{r}
+calc_mean <- function(vector){
+  sum_vec <- sum(vector) # find summation of the vector
+  len_vec <- length(vector)   # find the length of the vector
+  
+  # compute the mean
+  mean_vec <- sum_vec / len_vec
+  
+  return(mean_vec)
+}
+
+# evaluation
+calc_mean(vector = 1:10)
+mean(1:10)
+```
+
+
+3. Recall the example2 from the `if-else` statement section, we can create a function to adjust the parameters for the normal distribution and the `x` value:
+
+```{r}
+test_for_x <- function(n, mean, sd){
+  set.seed(34) # not necessarily, only for illustration for matching arguments
+  
+  x <- rnorm(n, mean, sd)
+
+  if (x < 0) {
+    y <- -1
+  } else if (x > 0 & x < 1) {
+    y <- 0
+  } else if (x > 1 & x < 3) {
+    y <- 1
+  } else {
+    y <- 2
+  }
+  
+  result <- print(paste("x value is:", x, "and y value is: ", y))
+}
+```
+
+```{r}
+# evaluation
+test_for_x(n = 1, mean = 4, sd = 6)
+test_for_x(n = 1, mean = 34, sd = 76)
+```
+
+\
+Check point:
+
+What is the function defintion of `test_for_x`, and what is its fucntion call?
+\
+
+#### Matching arguments
+
+Calling an R function with arguments can be done in a variety of ways. We can either follow the argument order in the function definition, or specifying the argument name. If specifying the argument name, the order of these argument do not matter.
+
+For instance, calling the function `test_for_x` from the last example, we can either use the follwoing way which gives the same results.
+```{r}
+# Positional match first argument
+type_1 <- test_for_x(1, 3, 5)
+
+# Specifying arrguments names
+type_2 <- test_for_x(n = 1, mean = 3, sd = 5)
+
+# Specifying arguments names but not following the order in the function
+# definition
+type_3 <- test_for_x(sd = 5, n = 1, mean = 3)
+
+all.equal(type_1, type_2, type_3)
+```
+
+
+\
+Check point:
+
+Can you write a simple function that can calculate the mean, median, and standard deviation of a vecotr? Return the results in a vector format.
+\
+
+
+## `apply` family
+
+The `apply` family of functions in R allows to apply a function to subsets of data structure, such as a matrix or data frame, and return the results as a new data structure. The apply family consists of several related functions, each of which is optimized for a specific data structure and operation:
+
+-   `apply()`: Applies a function to the rows or columns of a matrix or array and returns the results as a vector, matrix, or array.
+-   `lapply()`: Applies a function to each element of a list and returns the results as a list.
+-   `sapply()`: Simplifies the output of lapply() by converting it to a vector or matrix, if possible.
+-   `tapply()`: Applies a function to subsets of a vector or array based on one or more grouping factors and returns the results as a vector or array.
+-   `mapply()`: Applies a function to multiple vectors or lists in parallel and returns the results as a vector or list.
+
+
+\
+These functions are particularly useful when we need to perfomr the same operations on multiple subsets of a data structure, such as calclulating summary statistics for each column or a data frame or applying a custom function to each elements of a list.
+
+Its main advantage is we can ofern avoid writing explicit loops or other contrail structures, which make our code more concise, readable, and efficient. Furthermore, it can help us avoiding common programming errors, such as off-by-one errors or index-out-of-bounds errors, that can occur when manually iterating over data structures.
+
+
+### `apply()`
+
+The `apply()` function definition is 
+
+```{r eval=FALSE}
+apply(array, margin, FUN, ...)
+```
+
+where array is the input array (including matrix) and FUN means the function we want to apply to this array. MARGIN indicates the subscripts which the function will be applied over where `MARGIN = 1` mean applying over the rows, and `MARGIN = 2` mean applying over the columns.
+
+For instance, we want to use the `apply` function to calculate the row sums of a matrix.
+
+```{r}
+# Create a matrix
+mat <- matrix(c(1,2,3,4,5,6), nrow = 2)
+
+# Calculate row sums using apply()
+apply(mat, 1, sum)
+
+# Calculate column mean using apply()
+apply(mat, 2, mean)
+```
+
+
+
+### `lapply()`
+
+The `lapply()` stands for "list apply", where its function definition is
+
+```{r eval=FALSE}
+lapply(list, function)
+```
+
+It is used to apply a given function to each element of a **list** (atomic or list or an expression object) and returns a list. The first argument is the list object to which the function should applied, and the second argument is the function to apply to each element of the list.
+
+For instance,
+```{r}
+# Create a list of numeric vectors
+my_list <- list(a = c(1, 2, 3), b = c(4, 5, 6), c = c(7, 8, 9))
+my_list
+
+# Use lapply to calculate the mean of each vector in the list
+my_list_res_lapply <- lapply(my_list, mean)
+my_list_res_lapply
+```
+
+On the other hand, we can also specify our own function to apply to the given vector or list.
+
+```{r}
+my_vec <- sample(1:1000, size = 10, replace = TRUE)
+
+my_vec_res_lapply <- lapply(my_vec, function(k) {
+  res = k ^ 2
+}) 
+
+my_vec_res_lapply
+```
+
+
+### `sapply()`
+
+`sapply()` is a function that similar ro `lapply()`. While `lapply()` always returns a list, `sapply()` tries to simplify the output into a vector, matrix or array, if possible. This can be useful when the output from each element of the list or vector is of the same type and can be combined into a vector or matrix.
+
+Using the same example as `lapply()`, we observe:
+
+Example 1:
+
+```{r}
+# Use lapply to calculate the mean of each vector in the list
+my_list_res_sapply <- sapply(my_list, mean)
+my_list_res_sapply
+```
+
+```{r}
+# class of result
+class(my_list_res_lapply)
+class(my_list_res_sapply)
+```
+
+
+\
+Example 2:
+
+```{r}
+my_vec_res_sapply <- sapply(my_vec, function(k) {
+  res = k ^ 2
+}) 
+
+my_vec_res_sapply
+```
+
+```{r}
+# class of result
+class(my_vec_res_lapply)
+class(my_vec_res_sapply)
+```
+
+
+\
+
+## Reference
+
+[R Programming for Data Science](https://bookdown.org/rdpeng/rprogdatascience/)
