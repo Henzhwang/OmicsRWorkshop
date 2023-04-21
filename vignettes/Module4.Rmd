@@ -1,5 +1,9 @@
 ---
 title: "Module 4: Control Structure and Functions"
+author: ""
+date: "2023-04-20"
+description: >
+  Learn how to use the contruct sturctures and how to write your own functions in R.
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Module 4: Control Structure and Functions}
@@ -7,10 +11,34 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, include=FALSE}
+hooks = knitr::knit_hooks$get()
+hook_foldable = function(type) {
+  force(type)
+  function(x, options) {
+    res = hooks[[type]](x, options)
+    
+    if (isFALSE(options[[paste0("fold.", type)]])) return(res)
+    
+    paste0(
+      "<details><summary>", type, "</summary>\n\n",
+      res,
+      "\n\n</details>"
+    )
+  }
+}
+knitr::knit_hooks$set(
+  chunk = hook_foldable("chunk")
+  #output = hook_foldable("output"),
+  #plot = hook_foldable("plot")
+)
+```
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>", 
+  fold.chunk = FALSE
 )
 ```
 
@@ -34,7 +62,7 @@ By leveraging control structures effectively, you can significantly enhance the 
 
 In R, if-else statements are fundamental control structures used for the conditional execution of code. They enable you to specify different code blocks to execute based on the evaluation of a logical expression inside the `if` statement.
 
-If the expression is `TRUE`, the code inside the `if` statement is executed. While `if(<condition>) == if(<condition> == TRUE)`, and `{}` treats the code inside as a single expression (execute all code inside the `{}` at once), the syntax goes as
+If the expression is `TRUE`, the code inside the `if` statement is executed. While `if(<condition>) == if(<condition> == TRUE)`, and `{}` treats the code chunk inside as a single expression (execute all code inside the `{}` at once), the syntax goes as
 
 ```{r eval=FALSE}
 if (<condition>) {
@@ -53,6 +81,8 @@ if (<condition1>) {
   
 }
 ```
+
+> p.s.: If you want the evaluate the code chunk while the condition is `FALSE`, you will have to specify as `if(<condition> == FALSE)`. Then, you may use `else` for the condition where the `<condition> == TRUE`.
 
 If you have a series of test (multiple condition for different actions), we use the `else if` statement
 
@@ -106,14 +136,14 @@ if (x < 0) {
 print(paste("x value is:", x, "and y value is: ", y))
 ```
 
-\
-Check point:
 
-Can you create a `if-else` syntax with the following conditions:
+> Check point:
+> 
+> Can you create a `if-else` syntax with the following conditions:
+>
+> Let `x` be a random number from 1 to 10 (You can use `sample()`). Consider if the `x` value is small if the value is less than 5, and if the `x` value is large if the value is greater than and equal to 5. Print your judgement using `print(paste("The`x`value is", x, "and the value is small."))`.
 
-Let `x` be a random number from 1 to 10 (You can use `sample()`). Consider if the `x` value is small if the value is less than 5, and if the `x` value is larger if value greater than equal to 5. Print your judgement using `print(paste("The`x`value is", x, "and the value is small."))`.
-
-```{r}
+```{r fold.chunk=TRUE}
 x <- sample(1:10, size = 1)
 
 if (x < 5) {
@@ -164,7 +194,7 @@ if (x < 5) {
 <!-- ``` -->
 
 
-## `for` loop
+### `for` loop
 
 In R, loops are used to execute a block of code repeatedly, and it can simplify the execution of repetitive tasks. A `for` loop is a specific type of loop that iterates over a sequence of values and performs a set of instructions on each value.
 
@@ -192,7 +222,7 @@ for (i in 1:10) {
 }
 ```
 
-Instead of printing out the `i` variable, suppose we have a vector of numbers and we want to calculate the sum of all the numbers. We could use a for loop to iterate over the vector and add up each value:
+Instead of printing out the `i` (value) variable, suppose we have a vector of numbers and we want to calculate the sum of all the numbers. We could use a for loop to iterate over the vector and add up each value:
 
 ```{r}
 total <- 0
@@ -220,11 +250,22 @@ for (z in letters) {
 }
 ```
 
-\
 
-Check point:
 
-Use for loop to iterate over the vector `x <- c(2, 3, 4, 7, 8, 9)` and multiple each value.\
+> Check point: 
+>
+> Use for loop to iterate over the vector `x <- c(2, 3, 4, 7, 8, 9)` and multiple by each value iteratively. (Hint: we want 2*3*4*7*8*9, and you can modify the for loop for summation ) 
+
+```{r fold.chunk=TRUE}
+x <- c(2, 3, 4, 7, 8, 9)
+total <- 1
+
+for (i in x) {
+  total = total * i
+}
+print(total)
+```
+
 
 We can now consider the check-point exercise we had in the `if-else`. We now want to use the for loop to determine 10 `x` value if they are large or small.
 
@@ -244,7 +285,7 @@ In this for loop, notice the value variable `i` is not use any where inside the 
 
 \
 
-## Nested `for` loop
+### Nested `for` loop
 
 A nested `for` loop is a loop inside another loop. The outer loop controls the number of iterations and the inner loop exectues a specific set of instructions on each iteration of the outer loop.
 
@@ -273,8 +314,9 @@ print(my_matrix)
 ```
 
 \
-\
-## `while` loop
+
+
+### `while` loop
 
 A `while` loop is a control structure that allows you to execute a set of instructions repeatedly while a certain condition is true. The `while` loop consists of a condition that is evaluated at the beginning of each iteration, and a set of instructions that are executed if the condition is true.
 
@@ -404,6 +446,7 @@ calc_mean <- function(vector){
 }
 
 # evaluation
+## results are the same as using mean()
 calc_mean(vector = 1:10)
 mean(1:10)
 ```
@@ -437,13 +480,14 @@ test_for_x(n = 1, mean = 4, sd = 6)
 test_for_x(n = 1, mean = 34, sd = 76)
 ```
 
-\
-Check point:
 
-What is the function defintion of `test_for_x`, and what is its fucntion call?
+> Check point:
+> 
+> What is the function definition of `test_for_x`, and what is its fucntion call?
+
 \
 
-#### Matching arguments
+### Matching arguments
 
 Calling an R function with arguments can be done in a variety of ways. We can either follow the argument order in the function definition, or specifying the argument name. If specifying the argument name, the order of these argument do not matter.
 
@@ -463,10 +507,30 @@ all.equal(type_1, type_2, type_3)
 ```
 
 
-\
-Check point:
 
-Can you write a simple function that can calculate the mean, median, and standard deviation of a vecotr? Return the results in a vector format.
+> Check point:
+> 
+> Can you write a simple function that can calculate the mean, median, and standard deviation of a vector? Return the results in a vector format.
+
+```{r fold.chunk=TRUE}
+summary_stats <- function(vector) {
+  
+  mean_vec <- mean(vector)    # finding mean
+  median_vec <- median(vector)    # finding median
+  sd_vec <- sd(vector)    # finding standard deviation
+  
+  #res <- c(mean_vec, median_vec, sd_vec)  # create a atomic vector that contain the results
+  
+  #return(res)
+  return(c(mean_vec, median_vec, sd_vec))
+}
+
+summary_stats(1:10)
+```
+
+
+
+
 \
 
 
@@ -567,7 +631,6 @@ class(my_list_res_sapply)
 ```
 
 
-\
 Example 2:
 
 ```{r}
