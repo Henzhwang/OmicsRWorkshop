@@ -25,11 +25,13 @@ development:
   mode: auto
 
 articles:
-- title: Materials
+- title: Course Material
   navbar: ~
   contents:
-  - Module1
+  - OmicsRWorkshop
   - Module2
   - Module3
-  - Exercise1
   - Module4
+- title: Exercises
+  contents:
+  - Exercise1

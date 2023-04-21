@@ -38,16 +38,19 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
+  <a class="nav-link" href="../articles/OmicsRWorkshop.html">Get started</a>
+</li>
+<li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/Module1.html">Module 1 Introduction to R</a>
     <a class="dropdown-item" href="../articles/Module2.html">Module 2 Basic of R</a>
     <a class="dropdown-item" href="../articles/Module3.html">Module 3 Constructing Workflow</a>
-    <a class="dropdown-item" href="../articles/Exercise1.html">Exercise 1</a>
     <a class="dropdown-item" href="../articles/Module4.html">Module 4: Control Structure and Functions</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="../articles/index.html">More articles...</a>
   </div>
 </li>
       </ul>
@@ -191,7 +194,7 @@ distribution. If <code>x</code> is greater than 2, then we set
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"x value is:"</span>, <span class="va">x</span>, <span class="st">"and y value is: "</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "x value is: -3.43286940418899 and y value is:  -1"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "x value is: -2.6789428539589 and y value is:  -1"</span></span></code></pre></div>
 <blockquote>
 <p>Check point:</p>
 <p>Can you create a <code>if-else</code> syntax with the following
@@ -212,7 +215,7 @@ chunk
 <span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"The `x` value is"</span>, <span class="va">x</span>, <span class="st">"and the value is large."</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 9 and the value is large."</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "The `x` value is 6 and the value is large."</span></span></code></pre></div>
 </details><p><br></p>
 <!-- Example 2: Determining the letter grade for a test score -->
 <!-- ```{r} -->
@@ -347,16 +350,16 @@ chunk
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"The `x` value is"</span>, <span class="va">x</span>, <span class="st">"and the value is large."</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 2 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 6 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 9 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 7 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 9 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 3 and the value is small."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 10 and the value is large."</span></span>
 <span><span class="co">#&gt; [1] "The `x` value is 8 and the value is large."</span></span>
 <span><span class="co">#&gt; [1] "The `x` value is 6 and the value is large."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 5 and the value is large."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 2 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 10 and the value is large."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 2 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 2 and the value is small."</span></span>
-<span><span class="co">#&gt; [1] "The `x` value is 3 and the value is small."</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "The `x` value is 7 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 9 and the value is large."</span></span>
+<span><span class="co">#&gt; [1] "The `x` value is 9 and the value is large."</span></span></code></pre></div>
 <p>In this for loop, notice the value variable <code>i</code> is not use
 any where inside the for loop.</p>
 <p><br></p>

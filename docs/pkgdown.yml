@@ -3,11 +3,11 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   Exercise1: Exercise1.html
-  Module1: Module1.html
   Module2: Module2.html
   Module3: Module3.html
   Module4: Module4.html
-last_built: 2023-04-21T01:10Z
+  OmicsRWorkshop: OmicsRWorkshop.html
+last_built: 2023-04-21T01:31Z
 urls:
   reference: https://henzhwang.github.io/Intro/reference
   article: https://henzhwang.github.io/Intro/articles

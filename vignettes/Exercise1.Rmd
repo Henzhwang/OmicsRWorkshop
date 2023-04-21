@@ -3,7 +3,7 @@ title: "Exercise 1"
 author: ""
 date: "2023-04-07"
 description: >
-  Questions for material for up to Module 3.
+  Questions for materials for up to Module 3.
 output: 
   rmarkdown::html_vignette:
     code_folding: hide
